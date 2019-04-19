@@ -1,0 +1,220 @@
+
+
+@media (min-width: 768px) {
+    #boxSection {
+        /*dat compatibility yo*/
+        display: -moz-box;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: box;
+        /*vertical, can be stretch center*/
+        -moz-box-align: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        box-align: center;
+        /*align children horizontally, center start end*/
+        -moz-box-pack: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        box-pack: center;
+        /*orientation of section */
+        -moz-box-orient: horizontal;
+        -webkit-box-orient: horizontal;
+        -ms-box-orient: horizontal;
+        box-orient: horizontal;
+
+        top: 40%;
+        left: 0;
+        width: 100%;
+    }
+
+    #navBoxSection {
+        /*display: flex;*/
+        flex-wrap: wrap;
+        /*dat compatibility yo*/
+        display: -moz-box;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: box;
+        /*vertical, can be stretch center*/
+        -moz-box-align: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        box-align: center;
+        /*align children horizontally, center start end*/
+        -moz-box-pack: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        box-pack: center;
+        /*orientation of section */
+        -moz-box-orient: horizontal;
+        -webkit-box-orient: horizontal;
+        -ms-box-orient: horizontal;
+        box-orient: horizontal;
+
+        top: 40%;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.boxNav{
+    margin:2px;
+	height:20px;
+    width:20px;
+    
+	/*dat compatibility yo*/
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-flexbox;
+	display:box;
+	
+	-webkit-transition: all 1.0s;
+	-moz-transition: all 1.0s;
+	-ms-transition: all 1.0s;
+	transition: all 1.0s;
+
+    -webkit-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    -moz-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    -ms-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+    display: flex;
+    align-items: center;
+}
+
+.mainBox{
+	margin:10px;
+	height:150px;
+	width:150px;
+
+	/*dat compatibility yo*/
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-flexbox;
+	display:box;
+    /*-moz-box-orient: vertical;*/
+	
+	-webkit-transition: all 1.0s;
+	-moz-transition: all 1.0s;
+	-ms-transition: all 1.0s;
+	transition: all 1.0s;
+
+    -webkit-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    -moz-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    -ms-box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+    box-shadow: rgba(48, 48, 48, .7) 7px 7px 7px;
+
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: row-reverse; /* Safari 6.1+ */
+    display: flex;
+    align-items: center;
+}
+
+.boxNav:hover{
+    cursor:pointer;
+    cursor:hand;
+}
+
+.mainBox:hover{
+    cursor:pointer;
+    cursor:hand;
+}
+
+#randomColors:hover{
+    cursor:pointer;
+    cursor:hand;
+
+}
+
+@media (max-width: 767px){
+    .boxText {
+        opacity: .5;
+    }
+}
+@media (min-width: 767px){
+    .boxText {
+        opacity: .05;
+    }
+}
+
+.boxText {
+    -webkit-transition: all 1.0s;
+	-moz-transition: all 1.0s;
+	-ms-transition: all 1.0s;
+	transition: all 1.0s;
+
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0;
+    margin-bottom:0;
+
+    color: white;
+    /*this adds an outline to the text */
+    /*text-shadow:
+        -1px -1px 0 rgba(48, 48, 48, .7),
+		1px -1px 0 rgba(48, 48, 48, .7),
+		-1px 1px 0 rgba(48, 48, 48, .7),
+        1px 1px 0 rgba(48, 48, 48, .7);*/
+    text-shadow: 2px 2px 2px rgba(48, 48, 48, .7);
+    font-weight: bold;
+    /*opacity: .05;*/
+}
+
+/*
+.box1{
+    background-color:#333333;
+}
+.box2{
+    background-color:#662222;
+}
+.box3{
+    background-color:#991111;
+}
+.box4{
+    background-color:#cc0000;
+}
+*/
+
+@media (max-width: 767px){
+    #boxSection{
+	
+	/*dat compatibility yo*/
+    display:-moz-box;
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display: box;
+	
+    /*vertical, can be stretch center*/
+    -moz-box-align:center;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	box-align:center;
+	
+    /*align children horizontally, center start end*/
+    -moz-box-pack: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	box-pack: center;
+	
+    /*orientation of section */
+    /*-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal; 
+	-ms-box-orient: horizontal;
+	box-orient: horizontal;*/
+
+    -moz-box-orient: vertical;
+	-webkit-box-orient: vertical; 
+	-ms-box-orient: vertical;
+	box-orient: vertical;
+
+    top:40%;
+    left:0;
+    width:100%;
+    }
+}
+
+

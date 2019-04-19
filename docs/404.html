@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--boxes-->
+    <script src="/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="/js/mainBox.js" type="text/javascript"></script>
+    <script src="/js/backgroundRotate.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/css/mainBox.css">
+   <title>404 - Page not found</title>
+   <meta name="description" content="This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.">
+   <meta name="keywords" content="luis, garcia, github, developer, software, engineer" />
+   <meta name="HandheldFriendly" content="True">
+   <meta name="robots" content="index,follow">
+   <meta name="googlebot" content="index,follow">
+	<meta property="og:title" content="404 - Page not found" />
+	<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Luis Garcia" />
+<meta property="og:description" content="This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick." />
+<meta property="og:url" content="/404" />
+	<meta property="article:author" content="" />
+	<link rel="author" href="" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="404 - Page not found">
+<meta name="twitter:url" content="">
+<meta name="twitter:description" content="This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.">
+<meta name="twitter:image:src" content="">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">
+  <link rel="alternate" type="application/rss+xml" title="Luis Garcia" href="feed.xml">
+    <!--Jekyll has a hard time with this-->
+    <!--<link rel="stylesheet" href="/css/screen.css">
+  <link rel="alternate" type="application/rss+xml" title="Luis Garcia" href="/feed.xml">-->
+    <!--<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">-->
+</head>
+<body class="home-template">
+   <div class="site-wrapper">
+<!--<header class="main-header detail-page image-bg  no-cover" >-->
+  <header id="main-header" class="main-header detail-page image-bg has-cover">
+   <div class="nav">
+       <div class="navbar-left" >
+           <div id="navBoxSection" class="page-link navbar-left" ></div>
+            <a class="page-link navbar-left" href="/" title="Home">Home</a>
+       </div>
+       <div class="navbar-right">
+                    <a class="page-link" href="/offline-warning/" title="Offline">Offline</a>
+                    <a class="page-link" href="/cv" title="CV">CV</a>
+                    <a class="page-link" href="/about" title="About">About</a>
+       </div>
+   </div>
+    <!--</nav>-->
+    <!--Old Nav-->
+    <!--<div class="nav">
+        <a class="page-link" href="/" title="Home">Home</a>
+        <a class="page-link" href="/offline-warning/" title="Offline">Offline</a>
+        <a class="page-link" href="/cv" title="CV">CV</a>
+        <a class="page-link" href="/about" title="About">About</a>
+   </div>-->
+   <h1 class="page-title"><a href="/" title="Luis Garcia">Luis Garcia</a></h1>
+   <h2 class="page-description">Developer</h2>
+   <div id="boxSection" ></div>
+    <a id="randomColors" class="page-link">Change Palette</a>
+</header>
+       <div id="content" class="content">
+  <header class="post-header short-diver">
+       <h1 class="post-title">Page not found</h1>
+       <p>The page you requested could not be found.</p>
+   </header>
+   <h3>Similar URLs</h3>
+   <ul class="category recent-posts">
+       <ul class="urlSuggestions"></ul>
+   </ul>
+</div>
+<script id="article-template" type="text/x-custom-template">
+   <li>
+       <div class="article">
+           <article class="article" itemscope itemtype="http://schema.org/BlogPosting">
+              <header class="post-header">
+                    <span class="title"><a itemprop="name" href="" title=""></a></span>
+                    <time class="date" itemprop="datePublished" datetime=""></time>
+               </header>
+           </article>
+       </div>
+   </li>
+</script>
+<script src="/js/jquery-1.12.0.min.js"></script>
+<script src="/js/fuzzyset.js"></script>
+<script src="/js/offline.js"></script>
+<script>
+    $(document).ready(function () {
+        insertSimilarUrls(String(window.location.href), "/api/posts.json", "#article-template", ".urlSuggestions", 10);
+    });
+</script>
+       <footer class="site-footer">
+    <button class="go-to-top"></button>
+   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2019 | <a href="/feed.xml" title="RSS Feed">RSS Feed</a></p>
+   <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a></p>
+</footer>
+   </div>
+</body>
+<script src="/js/global.js"></script>
+</html>
