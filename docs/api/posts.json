@@ -2,6 +2,17 @@
 
   
     {
+        "title": "New Blog, Who's This",
+        "category": "Non-Technical",
+        "url": "/blog/non-technical/NewBlogWhoThis",
+        "tags": ["Jekyll","Github","Hexo","Integration","Deployment","Blog"],
+        "date": "2019-04-26 10:00:00 -0400",
+        "language": "en"
+    },
+  
+
+  
+    {
         "title": "Test Technical Blog",
         "category": "Technical",
         "url": "/blog/technical/Test-Technical",
