@@ -1,11 +1,11 @@
 default:                                                      # Fallback if nothing is specified
   initial:      jdecent                                       # used for author lookup in posts and for first two characters in the about page back button
   name:         "Jekyll Decent"                               # used to display author name
-  cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
-  picture:      /assets/johndoe.jpg                           # OPTIONAL: author picture
-  bio:          This is my bio!                               # OPTIONAL: text below author name in posts
-  location:     Germany                                       # OPTIONAL: used to display location of the author
-  website:                          						  # OPTIONAL: link to the author of a post
+  cover:        /assets/bearStudy.jpg                         # OPTIONAL: defines location of cover image in about page
+  picture:      /assets/icon_512x512.png                      # OPTIONAL: author picture
+  bio:                                                        # OPTIONAL: text below author name in posts
+  location:                                                   # OPTIONAL: used to display location of the author
+  website:                          	            					  # OPTIONAL: link to the author of a post
   email:                                                      # OPTIONAL: used in the about page
   twitter:                                                    # OPTIONAL: used in the about page
   linkedin:                                                   # OPTIONAL: used in the about page
@@ -26,10 +26,10 @@ default:                                                      # Fallback if noth
 jdecent:
   initial:      jdecent
   name:         "Jekyll Decent"       
-  cover:        /assets/mountain-alternative-cover.jpg  
-  picture:      /assets/johndoe.jpg  
-  bio:          This is my bio!
-  location:     Germany
+  cover:        /assets/bearStudy.jpg  
+  picture:      /assets/icon_512x512.png  
+  bio:          
+  location:     
   email:        "-"   
   twitter:      "-"    
   twitch:       "-"
