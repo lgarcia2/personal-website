@@ -1,52 +1,40 @@
 
 $(document).ready(function () {
-    //without server side knowlegde, there isn't a good way to get the file listing
-    //with that knowlegde we could do a better file listing
-    //TODO: now that these are in aws s3, its plausible to do a listObject, then randomize them
-    images = [
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/BuffaloSteam.jpg')",
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/BuffaloSteam2.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/LibraryOfCongress.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/ankorHall.jpg')",        
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/ankorLibrary.jpg')",        
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/ankorRight.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/ankorWat.jpg')",      
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/ankorWat2.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/bearStudy.jpg')",            
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/bunny.jpg')",             
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/dragonfly.jpg')",       
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/dragonflyFlower.jpg')",        
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/fireworks.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/flower.jpg')",
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/gardenBridge.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/gardenTower.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/grassyBuilding.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/incaPirca.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/incaPirca2.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/incaPircaRain.jpg')",       
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/incaPircaWall.jpg')",      
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/marinaBaySans2.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/marinabaysans.jpg')",               
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/oldSlip.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/pine.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/pokeyFlowerAndBee.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/rocks.jpg')",
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/singaporeFlower.jpg')",    
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/singaporeFlower2.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/tauProm.jpg')",          
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/taylorTemple.jpg')",        
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/tedy.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/temple.jpg')",      
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/threeBuffalo.jpg')",       
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/tinyFlowers.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/utahWaterfall.jpg')",  
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/waterfall.jpg')",          
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/whiteFlowers.jpg')",   
-        "url('https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/background-images/yellowstoneFalls.jpg')"
-    ];
-    index = Math.floor((Math.random() * images.length));
-    imageUrl = images[index];
-    console.log(imageUrl);
-    $(".main-header").css("background-image", imageUrl);
-    //style="background-image: url('http://localhost:4000/assets/mountain-alternative-cover.jpg')"
+
+    var baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/"
+
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        {
+            var response = xmlHttp.responseText;
+            if (window.DOMParser)
+            {
+                parser = new DOMParser();
+                xmlDoc = parser.parseFromString(response, "text/xml");
+            }
+            else // Internet Explorer
+            {
+                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async = false;
+                xmlDoc.loadXML(txt);
+            }
+
+            var keyNodes = xmlDoc.getElementsByTagName("Key");
+            var objectNames = [];
+            for(var i = 1; i < keyNodes.length; i++) //Start at 1 because the 0th index is the 'directory'
+            {
+                objectNames.push(keyNodes[i].childNodes[0].nodeValue);
+            }
+            
+            index = Math.floor((Math.random() * objectNames.length));
+            imageUrl = "url('" + baseUrl + objectNames[index] + "')";
+            console.log(imageUrl);
+            $(".main-header").css("background-image", imageUrl);
+        }
+    }
+
+    var listBucketUrl = baseUrl + "?list-type=2&Prefix=background-images";
+    xmlHttp.open("GET", listBucketUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
 });

@@ -29,7 +29,7 @@ function createNavBox (id, divClass) {
 function decimalToColor(decimalNumber) {
     var hexString = decimalNumber.toString(16);
     if(hexString.length < 6) {
-        for(i = 0; i < (6-hexString.length); i++){
+        for(i = 0; i <= (6-hexString.length); i++){
             hexString = "0" + hexString;
         }
     }
@@ -115,6 +115,11 @@ $(document).ready(function () {
         box2Color = decimalToColor(color2);
         box3Color = decimalToColor(color3);
         box4Color = decimalToColor(color4);
+
+        console.log("decimal " + color1 + " converted to hex color1: " + box1Color);
+        console.log("decimal " + color2 + " converted to hex color1: " + box2Color);
+        console.log("decimal " + color3 + " converted to hex color1: " + box3Color);
+        console.log("decimal " + color4 + " converted to hex color1: " + box4Color);
 
         //re-initialize
         $(".box1").css("background-color", box1Color);

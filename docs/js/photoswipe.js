@@ -19,7 +19,7 @@
  *
  * Set of generic functions used by gallery.
  * 
- * You're free to modify anything here as long as functionality is kept.
+ * You're free to modify anything here as long as functionality is kept. 
  * 
  */
 var framework = {
