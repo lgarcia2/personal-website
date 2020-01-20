@@ -30,8 +30,8 @@
 
     #navBoxSection {
         /*display: flex;*/
-        flex-wrap: wrap;
-        /*dat compatibility yo*/
+        /*flex-wrap: wrap;*/ /*Disabled 2020-01-20 cause navbox to look like a tetris T rather than a straight line*/
+        /*compatibility*/
         display: -moz-box;
         display: -webkit-box;
         display: -ms-flexbox;

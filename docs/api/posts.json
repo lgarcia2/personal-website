@@ -2,6 +2,17 @@
 
   
     {
+        "title": "How to Watermark All Your Photos",
+        "category": "Technical",
+        "url": "/blog/technical/Watermark",
+        "tags": ["Photography","FFmpeg"],
+        "date": "2020-01-20 13:00:00 -0500",
+        "language": "en"
+    },
+  
+
+  
+    {
         "title": "New Blog, Who's This",
         "category": "Non-Technical",
         "url": "/blog/non-technical/NewBlogWhoThis",

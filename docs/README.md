@@ -1,10 +1,12 @@
-# jekyllDecent
-[![Build Status](https://travis-ci.org/jwillmer/jekyllDecent.svg?branch=gh-pages)](https://travis-ci.org/jwillmer/jekyllDecent) 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](#license)
-[![Release v1.1.9](https://img.shields.io/badge/release-v1.1.9-blue.svg)](https://github.com/jwillmer/jekyllDecent/releases/tag/1.1.9)
+# lgarcia2/personal-website
 
-This is a blog template for a static site generator named [Jekyll](https://jekyllrb.com/docs/home/) based on a [Ghost](https://ghost.org) template named [Decent](https://github.com/serenader2014/decent). 
+This is a static site created from a generator named [Jekyll](https://jekyllrb.com/docs/home/)
 
-Installation instructions, features, previews and more can be found in the **[GitHub generated blog](https://jwillmer.github.io/jekyllDecent)**. This blog is automatically generated out of the source code in the `gh-pages` branch. If you like to see the theme in production have a look at [jwillmer.de](https://jwillmer.de).
+The template used here adapted from a template named [Decent](https://github.com/serenader2014/decent). 
 
-[![](https://raw.githubusercontent.com/jwillmer/jekyllDecent/gh-pages/media/img/2016-06-08-Readme-front-page-previewe.jpg)](https://jwillmer.github.io/jekyllDecent)
+To build/deploy this site, see the following instructions
+    1. Clone this repository
+    2. Make changes
+    3. Build the new static site with the command 'bundle exec jekyll build'
+    3. Push changes to master
+    4. check luisorlandogarcia
