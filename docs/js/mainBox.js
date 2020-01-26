@@ -56,7 +56,7 @@ $(document).ready(function () {
     document.getElementById("boxSection").appendChild(createMainBox("box1", "mainBox box1", "Technical Blog"));
     document.getElementById("boxSection").appendChild(createMainBox("box2", "mainBox box2", "Non-Technical Blog"));
     document.getElementById("boxSection").appendChild(createMainBox("box3", "mainBox box3", "Github"));
-    document.getElementById("boxSection").appendChild(createMainBox("box4", "mainBox box4", "Showcase"));
+    document.getElementById("boxSection").appendChild(createMainBox("box4", "mainBox box4", "Wedding Info"));
 
     function changeColor(event) {
         console.log("changeColor 1");
@@ -83,15 +83,15 @@ $(document).ready(function () {
         //the standard opacity is in the css
         if($(document).width() < 767)
         {
-            $(".box1Text").css("opacity", .5);
-            $(".box2Text").css("opacity", .5);
-            $(".box3Text").css("opacity", .5);
-            $(".box4Text").css("opacity", .5);
+            $(".box1Text").css("opacity", .65);
+            $(".box2Text").css("opacity", .65);
+            $(".box3Text").css("opacity", .65);
+            $(".box4Text").css("opacity", .65);
         } else {
-            $(".box1Text").css("opacity", .05);
-            $(".box2Text").css("opacity", .05);
-            $(".box3Text").css("opacity", .05);
-            $(".box4Text").css("opacity", .05);
+            $(".box1Text").css("opacity", .25);
+            $(".box2Text").css("opacity", .25);
+            $(".box3Text").css("opacity", .25);
+            $(".box4Text").css("opacity", .25);
         }
     }
 
@@ -162,8 +162,8 @@ $(document).ready(function () {
     $(document).on("mouseout", ".box4", changeBack);
 
     //navigation
-    $(document).on("click", ".box1", {ref: "technical"}, navigate);
-    $(document).on("click", ".box2", {ref: "nontechnical"}, navigate);
+    $(document).on("click", ".box1", {ref: window.location.origin + "/technical"}, navigate);
+    $(document).on("click", ".box2", {ref: window.location.origin + "/nontechnical"}, navigate);
     $(document).on("click", ".box3", {ref: "https://github.com/lgarcia2"}, navigate);
-    $(document).on("click", ".box4", {ref: "notimplemented"}, navigate);
+    $(document).on("click", ".box4", {ref: "http://theknot.com/luisheartstaylor"}, navigate);
 });
