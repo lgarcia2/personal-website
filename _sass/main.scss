@@ -1,6 +1,6 @@
 // header
 .main-header {
-    background-color: #DCDCDC;
+    /*background-color: #DCDCDC;*/
     margin-bottom: 50px;
     /*padding-bottom: 40px;*/
     padding-bottom: 15px;
@@ -15,17 +15,18 @@
         .page-description,
         .nav a {
             color: $color-white;
-            text-shadow: 1px 1px 5px rgba($color-black, 0.5);
+            text-shadow: 1px 1px 3px rgba($color-black, 0.5);
         }
 
         .nav a {
             color: $color-white;
-            text-shadow: 1px 1px 5px rgba($color-black, 0.5);
+            text-shadow: 1px 1px 3px rgba($color-black, 0.5);
         }
 
         a.page-link {
             color: $color-white;
-            text-shadow: 1px 1px 5px rgba($color-black, 0.5);
+            text-shadow: 1px 1px 3px rgba($color-black, 0.5);
+            text-shadow: -2px 2px 3px rgba($color-black, 0.5);
         }
 
         .nav {
@@ -90,7 +91,8 @@
             a.page-link {
                 margin: 5px 10px;
                 display: inline-block;
-                font-size: 16px;
+                font-size: 18px;
+                font-weight: 500;
                 text-transform: uppercase;
             }
         }
@@ -164,15 +166,6 @@
         color: rgba($color-text-header, 0.8);
     }
 }
-
-/*.nav:before,
-.nav:after {
-    content: '';
-    padding: 0 15px;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, rgba($color-black,0) 0%,rgba($color-black,1) 50%,rgba(0,0,0,0) 100%);
-}*/
 
 .site-footer:before,
 .author-info:after {

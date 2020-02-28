@@ -19,8 +19,8 @@
 <meta property="og:site_name" content="Luis Garcia" />
 <meta property="og:description" content="This page contains the curriculum vitae (CV) of the author." />
 <meta property="og:url" content="/about" />
-	<meta property="article:author" content="http://www.luisorlandogarcia.com" />
-	<link rel="author" href="http://www.luisorlandogarcia.com" />
+	<meta property="article:author" content="http://www.luisgarcia.me" />
+	<link rel="author" href="http://www.luisgarcia.me" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@sillyhat12">
 <meta name="twitter:title" content="About Jekyll Decent">
@@ -43,10 +43,23 @@
 </head>
 <body class="home-template">
    <div class="site-wrapper">
-<a href="/" class="logo-readium"><span class="logo">lg</span></a>
+<!--<header class="main-header detail-page image-bg  no-cover" >-->
+  <header id="main-header" class="main-header detail-page image-bg has-cover image-rotate">
+   <div class="nav">
+       <div class="navbar-left" >
+           <div id="navBoxSection" class="page-link navbar-left" ></div>
+            <a class="page-link navbar-left" href="/" title="Home">Home</a>
+       </div>
+       <div class="navbar-right">
+                    <a class="page-link" href="/offline-warning/" title="Offline">Offline</a>
+                    <a class="page-link" href="/resume" title="Resumè">Resumè</a>
+       </div>
+   </div>
+   <div id="boxSection" ></div>
+    <a id="randomColors" class="page-link">Change Palette</a>
+</header>
 <section class="author-profile" itemprop="author" itemscope itemtype="http://schema.org/Person">
-   <div class="author-cover image-bg" style="background-image: url('/assets/bearStudy.jpg')"></div>
-   <figure class="author-image   has-cover  ">
+   <figure class="author-image has-cover">
        <div class="img image-bg" style="background-image: url(/assets/icon_512x512.png)">
             <a class="hidden" href="/assets/icon_512x512.png" itemprop="image">Luis Garcia's Picture</a>
        </div>
@@ -55,7 +68,7 @@
        <h1 class="author-title" itemprop="name">Luis Garcia</h1>
         <h2 class="author-bio" itemprop="description">Developing fun and interesting projects</h2>
        <div class="author-meta">
-            <a href="mailto:luisorlandogarcia2@gmail.com" itemprop="email" class="icon-mail">Mail</a>
+            <a href="mailto:me@luisgarcia.me" itemprop="email" class="icon-mail">Mail</a>
             <a href="https://twitter.com/sillyhat12" itemprop="sameAs" class="icon-twitter">Twitter</a> 
             <a href="https://www.linkedin.com/in/https://www.linkedin.com/in/luisorlandogarcia2/" itemprop="sameAs" class="icon-linkedin">LinkedIn</a> 
             <a href="https://github.com/lgarcia2" itemprop="sameAs" class="icon-github">GitHub</a> 
@@ -121,7 +134,8 @@ var config = {
 <script src="/js/post.js"></script>
        <footer class="site-footer">
     <button class="go-to-top"></button>
-   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2020 | <a href="/feed.xml" title="RSS Feed">RSS Feed</a></p>
+   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2020
+    <!--<a href="/feed.xml" title="RSS Feed">RSS Feed</a></p>-->
    <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a></p>
 </footer>
    </div>

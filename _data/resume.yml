@@ -1,0 +1,70 @@
+lgarcia:
+    profile: "I've had a passion for computers and technology from a young age. Developing, engineering, and creating unique projects has always been fun and I'm fortunate enough to be able to make a career out of it. In additon to the personal projects and notes on this website, you can find information about my professional life below."
+    skills:
+        - "Programming Languages: C#/.NET, PYTHON, JAVA, JAVASCRIPT"
+        - "Operating Systems: Windows, Linux (Ubuntu, Debian), Android"
+        - "Database Systems: SQL"
+        - "Version Control: Git, Apache Subversion, Team Foundation Server"
+        - "Misc: REST, SOAP, JSON, XML, Google Cloud, AWS"
+        - "Active Certifications: Scrum Alliance: Certified Scrum Master"
+        - "Former Certifications: Microsoft Certified Professional, MCSD: Web Applications, Microsoft Specialist: Programming in HTML5 with JavaScript and CSS3"
+    education:
+        - time:             "2013"
+          location:         "University of Wyoming"
+          description:      "BS - Computer Science"
+    employment:
+        - time:             "Fall 2017 - Present"
+          location:         "New York, NY"
+          company:          "ViacomCBS"
+          position:         "Lead Software Engineer"
+          responsibilities:
+            - Incorporated a wide set of micro-services into a request fulfillment system responsible for processing 30,000 independent jobs and 200+ terabyts of data per day.
+            - Led team & business to decisions on software architecture, project prioritization, and operations handling.
+            - Used specific audio and video manipulation knowledge to guide and aid in application development decisions.
+        - time:             "Summer 2015 - Fall 2017"
+          location:         "New York, NY"
+          company:          "Insight Global LLC"
+          position:         "Contract Developer (ViacomCBS)"
+          responsibilities:
+            - "Developed and maintained software services to transode, deliver, and archive content from massive media libraries."
+            - "Developed and Consumed API's to provide client-friendly access and integrate with additional backend services."
+        - time:             "Spring 2014 - Spring 2015"
+          location:         "Laramie, WY"
+          company:          "Handel I.T."
+          position:         "Project Manager"
+          responsibilities:
+            - "Worked directly with customers to understand needs and establish requirements and business logic for creating custom software solutions."
+            - "Managed technical specifications and documentation for customer integration projects"
+            - "Directed developers and engineers in the inclusion of custom work into the primary software product."
+        - time:             "Fall 2011 - Spring 2014"
+          location:         "Laramie, WY"
+          company:          "Handel I.T."
+          position:         "Junior Developer"
+          responsibilities:
+            - "Developed a modularly designed software product to create custom applications for recording and reporting organizational personal data."
+            - "Created custom modules with unique featuresets that integrated with a centralized framework."
+    projects:
+        - time:             "5 months in 1980"
+          team:             "Team of 1"
+          title:            "Web Project"
+          technologies:     "C#, JavaScript, HTML5, CSS"
+          responsibilities:
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet finibus libero sed ullamcorper. Donec."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sodales ligula sit amet nisl pellentesque, eu cursus neque."
+        - time:             "9 months in 1980"
+          team:             "Team of 1"
+          title:            "Android App"
+          technologies:     "Mono, .NET"
+          responsibilities:
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo, urna id hendrerit interdum, metus dui ultricies massa."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis leo nec lacus aliy rutrum."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum."
+        - time:             "3 months in 2015"
+          team:             "Team of 2"
+          title:            "Software Evaluation"
+          technologies:     "Recruting, .NET"
+          responsibilities:
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum commodo, urna id hendrerit interdum, metus dui ultricies massa."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sagittis leo nec lacus aliy rutrum."
+            - "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum."

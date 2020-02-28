@@ -12,4 +12,4 @@ To build/deploy this site, see the following instructions
     2. Make changes
     3. Build the new static site with the command 'bundle exec jekyll build'
     3. Push changes to master
-    4. check luisorlandogarcia.com
+    4. check luisgarcia.me

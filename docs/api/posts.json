@@ -41,50 +41,6 @@
         "tags": ["Jekyll","GitHub"],
         "date": "2019-04-14 20:00:00 -0400",
         "language": "en"
-    },
-  
-
-  
-    {
-        "title": "Theme Installation and Usage",
-        "category": "",
-        "url": "/blog/Readme",
-        "tags": ["Jekyll","Theme","GitHub","Installation"],
-        "date": "2016-06-08 11:25:00 -0400",
-        "language": "en"
-    },
-  
-
-  
-    {
-        "title": "Theme Features",
-        "category": "",
-        "url": "/blog/Features",
-        "tags": ["Jekyll","Theme","GitHub","Installation"],
-        "date": "2016-06-07 06:10:00 -0400",
-        "language": "en"
-    },
-  
-
-  
-    {
-        "title": "YAML Custom Features",
-        "category": "",
-        "url": "/blog/YAML-Features",
-        "tags": ["Jekyll","YAML","Features","Explained"],
-        "date": "2016-04-05 17:40:00 -0400",
-        "language": "en"
-    },
-  
-
-  
-    {
-        "title": "This post demonstrates post content styles",
-        "category": "",
-        "url": "/blog/Content",
-        "tags": ["Jekyll","Content","Demo"],
-        "date": "2016-03-05 00:00:00 -0500",
-        "language": "en"
     }
   
 

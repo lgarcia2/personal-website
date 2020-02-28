@@ -7,6 +7,7 @@ title:     About Jekyll Decent
 menutitle: About
 weight:    90
 excerpt:   This page contains the curriculum vitae (CV) of the author.
+visible: false
 --- 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 

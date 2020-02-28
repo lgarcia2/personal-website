@@ -30,7 +30,7 @@ $(document).ready(function () {
             index = Math.floor((Math.random() * objectNames.length));
             imageUrl = "url('" + baseUrl + objectNames[index] + "')";
             console.log(imageUrl);
-            $(".main-header").css("background-image", imageUrl);
+            $(".image-rotate").css("background-image", imageUrl);
         }
     }
 
