@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--boxes-->
+    <script src="/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="/js/mainBox.js" type="text/javascript"></script>
+    <script src="/js/backgroundRotate.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/css/mainBox.css">
+   <title>Image Hosting with AWS</title>
+   <meta name="description" content="New Website, New Problems">
+   <meta name="keywords" content="AWS, Image, Hosting, Github, Pages, Jekyll" />
+   <meta name="HandheldFriendly" content="True">
+   <meta name="robots" content="index,follow">
+   <meta name="googlebot" content="index,follow">
+	<meta property="og:title" content="Image Hosting with AWS" />
+	<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Luis Garcia" />
+<meta property="og:description" content="New Website, New Problems" />
+<meta property="og:url" content="/blog/technical/AWSImageHosting" />
+	<meta property="article:author" content="http://www.luisgarcia.me" />
+	<link rel="author" href="http://www.luisgarcia.me" />
+<meta property="article:published_time" content="2020-03-08T14:00:00-04:00" />
+<meta property="article:tag" content="AWS" />
+<meta property="article:tag" content="Image" />
+<meta property="article:tag" content="Hosting" />
+<meta property="article:tag" content="Github" />
+<meta property="article:tag" content="Pages" />
+<meta property="article:tag" content="Jekyll" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@sillyhat12">
+<meta name="twitter:title" content="Image Hosting with AWS">
+<meta name="twitter:url" content="">
+<meta name="twitter:description" content="New Website, New Problems">
+<meta name="twitter:image:src" content="">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">
+  <link rel="alternate" type="application/rss+xml" title="Luis Garcia" href="feed.xml">
+    <!--Jekyll has a hard time with this-->
+    <!--<link rel="stylesheet" href="/css/screen.css">
+  <link rel="alternate" type="application/rss+xml" title="Luis Garcia" href="/feed.xml">-->
+    <!--<link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="/assets/favicon-62.png" sizes="62x62" type="image/png">-->
+</head>
+<body class="home-template">
+   <div class="site-wrapper">
+<!--<header class="main-header detail-page image-bg  no-cover" >-->
+  <header id="main-header" class="main-header detail-page image-bg has-cover image-rotate">
+   <div class="nav">
+       <div class="navbar-left" >
+           <div id="navBoxSection" class="page-link navbar-left" ></div>
+            <a class="page-link navbar-left" href="/" title="Home">Home</a>
+       </div>
+       <div class="navbar-right">
+                    <a class="page-link" href="/offline-warning/" title="Offline">Offline</a>
+                    <a class="page-link" href="/resume" title="Resumè">Resumè</a>
+       </div>
+   </div>
+   <h1 class="page-title"><a href="/" title="Luis Garcia">Luis Garcia</a></h1>
+   <h2 class="page-description">Developer</h2>
+   <div id="boxSection" ></div>
+    <a id="randomColors" class="page-link">Change Palette</a>
+</header>
+       <main class="content" role="main">
+   <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-header short-diver">
+           <h1 class="post-title" itemprop="name headline">Image Hosting with AWS</h1>
+           <section class="post-meta">
+                <time datetime="2020-03-08T14:00:00-04:00" itemprop="datePublished">Mar 8, 2020</time>
+                on
+                <span>AWS</span>
+                <span>Image</span>
+                <span>Hosting</span>
+                <span>Github</span>
+                <span>Pages</span>
+           </section>
+       </header>
+       <section class="post-content short-diver" itemprop="articleBody">
+           <h2 id="new-website-new-problems">New Website, New Problems</h2>
+<p>I’m hosting this latest version of my website using Jekyll in combination with Github Pages. If you want to know more about that process you can read my post on that <a href="https://luisgarcia.me/blog/non-technical/NewBlogWhoThis">here.</a> Its been great! I’ve still not been contributing as much as I’d like, but I am contributing more! Along with new content, I’m also able to create and deploy site design changes with just as much speed. One of those changes is how I’m hosting the images in the background at the top of the page.</p>
+<p>Originally, I only used one background image for my website, the one with four couches and a girl. I wanted was to be able to show off more of my photos, so I added the images and a little javascript to randomize when they appeared. Job well done right? Well, there are a couple problems. First, I use a reasonably decent (read: nice for 2015) camera and its images can be quite large. For that matter, media files in general, depending on quality and compression, can be quite large. Since I’m using Github to host my website, I may <a href="https://help.github.com/en/github/managing-large-files/what-is-my-disk-quota">run into their size restrictions</a> if I store too many photos. Second, Github is generally used to store code repositories. Using it as a website hosting platform is a nice feature but those two pieces of functionality don’t alway agree on how to do things. Github and other repositories are not <em>generally</em> the ideal place to host images. Third, every deployment with an image change can take a long time to upload to the Github server.</p>
+<p>For my initial implementation, I was lucky enough to have the option to host my images in Github, but that needed to change.</p>
+<h2 id="my-first-idea">My First Idea</h2>
+<p>AWS costs money, and I didn’t want to pay. I wanted my cake and to eat it to, that is, I wanted my images to be hosted somewhere but I wanted to have strong control over those images and my IP (intellectual property). I probably could have used Imgur, Flickr, or maybe even Instagram as free public solutions to host my images. I didn’t like the inherent public nature of image hosting on the platform. For my pictures with my friends, sure they’re great. Vacation pictures, awesome! For storing my amateur photography? No way. <img src="https://i.giphy.com/media/fceh5CXz9mjHa/200.webp" alt="Protected GIF" /></p>
+<p>I tried using a private or even public album with Google Photos, but it seems Google has gotten wise and discourages direct links to photos. It seems like some companies may have come up with ways to get around this, but most of those seemed like hack-y solutions.</p>
+<p>In the end, my desire to control my images was more powerful than my desire for free solutions, but AWS S3 bucket hosting, in this case, was cheap enough for me.</p>
+<h2 id="enter-aws">Enter AWS</h2>
+<p>I’m sure there are a ton of ways to configure AWS resources, store your images, and grant access to them. However, I think this method is probably the simplest and most straightforward. I chose to upload my photos to a certain directory in an S3 bucket and grant public read access to that bucket.</p>
+<p>Breaking this down a bit, these are the steps that I needed to host images from AWS and use them on this site.
+    1. Login and Create an S3 Bucket
+    2. Configure the S3 Bucket
+    3. Upload Photos
+    4. Modify Website to Link to Photos</p>
+<h2 id="step-1---login-and-create-an-s3-bucket">Step 1 - Login and Create an S3 Bucket</h2>
+<p>If you don’t have an AWS account, its pretty easy to create one. Just go to <a href="https://aws.amazon.com/">https://aws.amazon.com/</a>, click “Create an AWS Account” and follow the instructions. You will have to enter credit card information to cover any costs that you incur with any of the resources you use. If you’re concerned you can look at AWS’s pricing information for more on this. I havent been charged yet and its been a couple months but I’m only using one S3 Bucket with a total of less than 40 MB. After you’ve created your account, or if you already have one, log in and get to the AWS Console.</p>
+<p>From there, under AWS services, you can search in the box for “S3” and click the link. Alternatively you can find and click the link under &gt; All Services &gt; Storage &gt; S3. From there it should be pretty easy to find the button with the label “Create Bucket”. Once clicked the “Create bucket” dialogue will appear. Choose a good name for the bucket, AWS has some good information on this if you click the little (i) icon next to “Bucket name” in this dialogue. I named mine luisgarcia.me-background-images for reference. You’ll also need to pick a region for it, this is worth looking into if your new to AWS but for now just pick the region closest to you. Once those two things are filled out, we’ll just accept the default settings on all the other pages, so keep clicking next until you’ve created your bucket. Now we can start configuring it!</p>
+<h2 id="step-2---configure-the-s3-bucket">Step 2 - Configure The S3 Bucket</h2>
+<p>Once you have the bucket go ahead and click it! This will take you to the bucket overview where you have a lot of control over your bucket. Right now, lets skip the “Overview” tab, it deals a lot with whats inside the bucket. While thats very important, I usually like to save it until the bucket is configured that way I don’t expose any sensitive data accidentally and I can remove the bucket easily if things change. A lot of the settings and confguration values we are about to change could have been chaged from the bucket creation dialog. I think its probably more important to configure a bucket once its already created though. In a bucket’s lifetime it can only be created once but its configuration could be changed any time you want.</p>
+<p>We’ll go ahead and click the ‘Properties’ tab next. Once you’re in there, click ‘Static website hosting’ accept the defaults and click save. Similar to our Github pages, we can use buckets for static website hosting. For our purposes though, since we just want image hosting we’ll use this functionality too.</p>
+<p>After that click the ‘Permissions’ tab. This is where we’ll allow read access to our bucket. Its pretty important to get this right, so if you’re not comfortable read up a bit more on AWS S3 bucket permissions. In the permissions tab, click the “Bucket Policy” button which will open the Bucket policy editor. This is where you can copy and paste the following JSON. Be sure to change <code>&lt;bucketname&gt;</code> to the name of your bucket.</p><pre><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::&lt;bucketname&gt;/*"
+        }
+    ]
+}
+</code></pre>
+<p>This JSON is telling AWS to create a policy named “AllowPublicRead” that grants the “GetObject” action on this S3 bucket to all resources. This policy is applied to all objects in the bucket, designated by the resource <code>arn:aws:s3:::&lt;bucketname&gt;/*</code>. If you wanted to just allow public read to a specific directory you could change this to <code>arn:aws:s3:::&lt;bucketname&gt;/specificDirectory/*</code></p>
+<h2 id="step-3---upload-photos">Step 3 - Upload Photos</h2>
+<p>This is an easy one, go back to the “Overview” tab, click upload, and pick the files you want in the bucket. I’m using images, but you could put anything here. Notably, since we configured it to be publicly accessible, anything you put there can be accessed publicly.</p>
+<h2 id="step-4---link-to-photos">Step 4 - Link to photos.</h2>
+<p>Since we configured our bucket for static website hosting earlier it should be pretty easy to link to our files, or images in my case. AWS has a pretty standard way of creating url’s from buckets. This can be changed if you want, but we’ll use the default since I already have my real website somewhere else. Anyway, our photos should be avaliable at <code>http://&lt;bucketname&gt;.s3-website.us-east-2.amazonaws.com/&lt;directory&gt;/&lt;filename&gt;</code>, note replace <code>&lt;bucketname&gt; &lt;directory&gt; and &lt;filename&gt;</code> with your relevant values. If you’re still having trouble seeing your files, check the properties tab again and click Static website hosting. Your website url should be at the top of the box that pops up.</p>
+<p>Once we have these links, you can alter the HTML in your other site to link to these new images and there we have it! Image hosting with AWS!</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I like this solution for the control I get over the objects, its relatively low cost, and low complexity. If one doesn’t have an AWS account, I’m sure you could do the same on the Google Cloud Platform or with Azure, other ‘cloud’ providers. I don’t like that its not free, but its a cost I can accept. Going forward, one thing I’d like to validate is the performance of loading theses images from a different place. I generally trust in the uptime and availability of the platforms hosting Github Pages and AWS S3 but it is possible that in certain cases the loading of either the site or the images could differ. Regardless I believe in the solution and I’m happy with it. This method is how I’m loading all the images you see at the top of the page so you can evaluate the solution in real time!</p>
+       </section>
+       <footer class="post-footer">
+           <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+   <div class="author-image">
+       <div class="img image-bg" style="background-image: url(/assets/icon_512x512.png)">
+            <a class="hidden" href="/assets/icon_512x512.png" itemprop="image">Luis Garcia's Picture</a>
+       </div>
+   </div>
+   <div class="short-diver">
+       <h4 class="author" itemprop="name">Luis Garcia</h4>
+       <p itemprop="description">Developing fun and interesting projects</p>
+       <div class="author-meta">
+            <span class="author-location icon-location" itemprop="nationality">New York City</span>
+            <span class="author-stats">
+			<i class="icon-stats-bars"></i>
+			5 posts			
+			</span>
+            <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
+       </div>
+   </div>
+</div>
+       </footer>
+   </article>
+</main>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+   <div class="pswp__bg"></div>
+   <div class="pswp__scroll-wrap">
+       <div class="pswp__container">
+           <div class="pswp__item"></div>
+           <div class="pswp__item"></div>
+           <div class="pswp__item"></div>
+       </div>
+       <div class="pswp__ui pswp__ui--hidden">
+           <div class="pswp__top-bar">
+               <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+               <div class="pswp__preloader">
+                   <div class="pswp__preloader__icn">
+                       <div class="pswp__preloader__cut">
+                           <div class="pswp__preloader__donut"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+               <div class="pswp__share-tooltip"></div>
+           </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+           <div class="pswp__caption">
+               <div class="pswp__caption__center"></div>
+           </div>
+       </div>
+   </div>
+</div>
+<script type="text/javascript">
+var config = {
+  'disqus_shortname': 'jekylldecent'
+};
+</script>
+<script src="/js/jquery-1.12.0.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script src="/js/prism.js"></script>
+<script src="/js/photoswipe.js"></script>
+<script src="/js/photoswipe-ui-default.js"></script>
+<script src="/js/post.js"></script>
+       <footer class="site-footer">
+    <button class="go-to-top"></button>
+   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2020
+    <!--<a href="/feed.xml" title="RSS Feed">RSS Feed</a></p>-->
+   <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a></p>
+</footer>
+   </div>
+</body>
+<script src="/js/global.js"></script>
+</html>

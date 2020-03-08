@@ -9,7 +9,7 @@
     <script src="/js/backgroundRotate.js" type="text/javascript"></script>
   <link rel="stylesheet" href="/css/mainBox.css">
    <title>How to Watermark All Your Photos</title>
-   <meta name="description" content="How to Watermark All Your Photos">
+   <meta name="description" content="">
    <meta name="keywords" content="Photography, FFmpeg" />
    <meta name="HandheldFriendly" content="True">
    <meta name="robots" content="index,follow">
@@ -17,7 +17,7 @@
 	<meta property="og:title" content="How to Watermark All Your Photos" />
 	<meta property="og:type" content="article" />
 <meta property="og:site_name" content="Luis Garcia" />
-<meta property="og:description" content="How to Watermark All Your Photos" />
+<meta property="og:description" content="" />
 <meta property="og:url" content="/blog/technical/Watermark" />
 	<meta property="article:author" content="http://www.luisgarcia.me" />
 	<link rel="author" href="http://www.luisgarcia.me" />
@@ -28,7 +28,7 @@
 <meta name="twitter:site" content="@sillyhat12">
 <meta name="twitter:title" content="How to Watermark All Your Photos">
 <meta name="twitter:url" content="">
-<meta name="twitter:description" content="How to Watermark All Your Photos">
+<meta name="twitter:description" content="">
 <meta name="twitter:image:src" content="">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" href="/assets/favicon-16.png" sizes="16x16" type="image/png">
@@ -75,13 +75,12 @@
            </section>
        </header>
        <section class="post-content short-diver" itemprop="articleBody">
-           <h2 id="how-to-watermark-all-your-photos">How to Watermark All Your Photos</h2>
 <p>In looking at images across the internet, an reocurring element that appears in many of them is a watermark. If you’re unfamiliar with the concept, a watermark is a small design or text added to an image. The purpose behind a watermark is to visibly mark a the image to provide the creator with proof of ownership. For instance, if I mark my photos with my name and someone else downloads the image and uses it, its clear who the photo belongs to and who the original creator is. A watermark’s effectiveness is debatable. Depending on the watermark, it can be sometimes be easily cropped off. There’s also software out there designed to explicitly remove watermarks. However, leaving a watermark on an image does offer at least some security when exposing your images to the internet. In this post, I’ll describe an easy way to add a watermark to an image, and a way to automate the process so that watermarks can be added <em>en masse</em> to a large number of photos in a short period of time.</p>
-<h1 id="ffmpeg">FFmpeg</h1>
+<h2 id="ffmpeg">FFmpeg</h2>
 <p>The tool I’ll be using to help us along is <a href="https://ffmpeg.org/">FFmpeg</a>. We’ll only be using it to manipulate our images, but its great open source tool if you want to for other things like video and audio processing. Its a very powerful and versitile tool and I highly recommend it for media processing.</p>
-<h1 id="other-requirements">Other requirements</h1>
+<h2 id="other-requirements">Other requirements</h2>
 <p>In addition to FFmpeg, you’ll need at least two images, an image that you want to apply a watermark to and the watermark image itself. When designing the watermark image some things to consider are size, color, and transparency. For my watermark image, I just chose my name set at an angle. Additionally, I made sure that the background of the watermark image was 100% transparent. The transparency should allow the watermark to be seen, but the original image can still be mostly intact.</p>
-<h1 id="simple-overlay">Simple Overlay</h1>
+<h2 id="simple-overlay">Simple Overlay</h2>
 <p>Running the following command in a shell will use FFmpeg to do a simple overlay, placing the watermark image on top of the original image</p><pre><code>$ ffmpeg.exe -i "originalImage.png" -i "watermarkImage.png" -filter_complex "[0:v][1:v] overlay=main_w-overlay_w:main_h-overlay_h" "outputImage.png"
 </code></pre>
 <p>The resulting image is a combination of the original image and the watermark. We’ve accomplished our goal. Now lets go into what the command is actually doing.</p><pre><code>ffmpeg.exe
@@ -157,7 +156,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302</p>
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			4 posts			
+			5 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>

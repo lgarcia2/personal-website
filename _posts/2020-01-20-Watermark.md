@@ -7,19 +7,20 @@ category:          Technical
 author:            lgarcia
 ---
 
-## How to Watermark All Your Photos
+[//]: # How to Watermark All Your Photos
+[//]: I commented out the title above to prevent it from being displayed twice
 
 In looking at images across the internet, an reocurring element that appears in many of them is a watermark. If you're unfamiliar with the concept, a watermark is a small design or text added to an image. The purpose behind a watermark is to visibly mark a the image to provide the creator with proof of ownership. For instance, if I mark my photos with my name and someone else downloads the image and uses it, its clear who the photo belongs to and who the original creator is. A watermark's effectiveness is debatable. Depending on the watermark, it can be sometimes be easily cropped off. There's also software out there designed to explicitly remove watermarks. However, leaving a watermark on an image does offer at least some security when exposing your images to the internet. In this post, I'll describe an easy way to add a watermark to an image, and a way to automate the process so that watermarks can be added _en masse_ to a large number of photos in a short period of time.
 
-# FFmpeg
+## FFmpeg
 
 The tool I'll be using to help us along is [FFmpeg](https://ffmpeg.org/). We'll only be using it to manipulate our images, but its great open source tool if you want to for other things like video and audio processing. Its a very powerful and versitile tool and I highly recommend it for media processing.
 
-# Other requirements
+## Other requirements
 
 In addition to FFmpeg, you'll need at least two images, an image that you want to apply a watermark to and the watermark image itself. When designing the watermark image some things to consider are size, color, and transparency. For my watermark image, I just chose my name set at an angle. Additionally, I made sure that the background of the watermark image was 100% transparent. The transparency should allow the watermark to be seen, but the original image can still be mostly intact.
 
-# Simple Overlay
+## Simple Overlay
 
 Running the following command in a shell will use FFmpeg to do a simple overlay, placing the watermark image on top of the original image
 

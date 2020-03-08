@@ -2,6 +2,17 @@
 
   
     {
+        "title": "Image Hosting with AWS",
+        "category": "Technical",
+        "url": "/blog/technical/AWSImageHosting",
+        "tags": ["AWS","Image","Hosting","Github","Pages","Jekyll"],
+        "date": "2020-03-08 14:00:00 -0400",
+        "language": "en"
+    },
+  
+
+  
+    {
         "title": "How to Watermark All Your Photos",
         "category": "Technical",
         "url": "/blog/technical/Watermark",

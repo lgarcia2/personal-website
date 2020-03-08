@@ -12,4 +12,10 @@ To build/deploy this site, see the following instructions
     2. Make changes
     3. Build the new static site with the command 'bundle exec jekyll build'
     3. Push changes to master
-    4. check luisorlandogarcia.com
+    4. check luisgarcia.me
+
+Common Issues:
+    1.  ISSUE: When building or running the site, an error with a similar message occurrs:
+        _Could not find nokogiri-x.xx.x-x64-mingw32 in any of the sources (Bundler::GemNotFound)_
+        RESOLUTION: Update bundler
+        _bundle update --bundler_
