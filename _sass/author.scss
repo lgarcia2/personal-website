@@ -1,8 +1,127 @@
 .author-cover {
-    height: 32rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    .nav a {
+        color: $color-white;
+        text-shadow: 1px 1px 3px rgba($color-black, 0.5);
+    }
+
+    .nav a {
+        color: $color-white;
+        text-shadow: 1px 1px 3px rgba($color-black, 0.5);
+    }
+
+    a.page-link {
+        color: $color-white;
+        text-shadow: 1px 1px 3px rgba($color-black, 0.5);
+        text-shadow: -2px 2px 3px rgba($color-black, 0.5);
+    }
+
+    .nav {
+        &:before, &:after {
+            background: linear-gradient(to right, rgba($color-white, 0) 0%,rgba($color-white, 1) 50%,rgba($color-white, 0) 100%);
+        }
+    }
+
+
+    @media (min-width: 500px){
+        /*mobile*/
+        padding-bottom: 60px;
+        .nav {
+            margin: auto 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            li {
+                margin: 5px 10px;
+                min-width: inherit;
+            }
+
+            .navbar-left {
+                display: flex;
+                float: left;
+                align-self: left;
+                text-align: left;
+                align-content: left;
+                justify-content: left;
+                padding-left: 5%;
+            }
+    
+            .navbar-right{
+                float: right;
+                align-self: right;
+                text-align: right;
+                align-content: right;
+                justify-content: right;
+                padding-right: 5%;
+            }   
+            
+            a.page-link {
+                margin: 5px 10px;
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    @media (max-width: 500px){
+        /*Desktop*/
+        height:32rem;
+        .nav {
+            margin: auto 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            li {
+                margin: 5px 10px;
+                min-width: inherit;
+            }
+
+            .navbar-left {
+                display: flex;
+                float: center;
+                align-self: center;
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                padding-left: 1%;
+            }
+    
+            .navbar-right{
+                float: center;
+                align-self: center;
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                padding-right: 1%;
+            }   
+            
+            a.page-link {
+                margin: 5px 10px;
+                display: inline-block;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
 }
 
 .author-image {

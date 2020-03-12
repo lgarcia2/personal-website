@@ -1,8 +1,5 @@
-// header
 .main-header {
-    /*background-color: #DCDCDC;*/
     margin-bottom: 50px;
-    /*padding-bottom: 40px;*/
     padding-bottom: 15px;
     background-size: cover;
     background-position: center;
@@ -49,14 +46,11 @@
     }
 
     @media (min-width: 500px){
+        /*mobile*/
         .nav {
-            /*margin: 40px auto 20px;*/
             margin: auto 20px;
-            /*display: flex;*/
             flex-wrap: wrap;
             justify-content: center;
-            /*justify-content: right;*/
-            /*max-width: 90%;*/
 
             ul {
                 display: flex;
@@ -99,14 +93,12 @@
     }
 
     @media (max-width: 500px){
+        /*desktop*/
         .nav {
-            /*margin: 40px auto 20px;*/
             margin: auto 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /*justify-content: right;*/
-            /*max-width: 90%;*/
 
             ul {
                 display: flex;

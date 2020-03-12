@@ -16,11 +16,37 @@ layout: headless
 {% endfor %}
 
 
-
 <section class="author-profile" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
+    {%  if author.cover %}
+    <div class="author-cover image-bg image-rotate" style="background-image: url('{{author.cover | absolute_url }}')">
+        <div class="nav">
+            <div class="navbar-left" >
+                <div id="navBoxSection" class="page-link navbar-left" ></div>
+                <a class="page-link navbar-left" href="{{ "/" | absolute_url }}" title="Home">Home</a>
+            </div>
+            <div class="navbar-right">
+                {% assign pages = site.pages | sort:"weight"  %}
+                {% for my_page in pages %}
+                        {% if my_page.menutitle %}
+                        {% assign title = my_page.menutitle %}
+                        {% elsif site.title %}
+                        {% assign title = my_page.title %}
+                        {% endif %}
+                
+                        {% if title and my_page.visible != false %}
+                        <a class="page-link" href="{{ my_page.url | absolute_url }}" title="{{ title }}">{{ title }}</a>
+                        {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="boxSection" ></div>
+        <a id="randomColors" class="page-link">Change Palette</a>
+    </div>
+    {% endif %}
+
     {%  if author.picture %}
-    <figure class="author-image has-cover">
+    <figure class="author-image  {%  if author.cover %} has-cover  {% endif %}">
         <div class="img image-bg" style="background-image: url({{author.picture | absolute_url }})">
             <a class="hidden" href="{{author.picture | absolute_url }}" itemprop="image">{{author.name}}'s Picture</a>
         </div>
