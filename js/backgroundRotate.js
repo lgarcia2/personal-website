@@ -34,7 +34,8 @@ $(document).ready(function () {
         }
     }
 
-    var listBucketUrl = baseUrl + "?list-type=2&Prefix=background-images";
+    //https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html
+    var listBucketUrl = baseUrl + "?prefix=background-images";
     xmlHttp.open("GET", listBucketUrl, true); // true for asynchronous 
     xmlHttp.send(null);
 });
