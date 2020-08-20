@@ -18,12 +18,14 @@ In the Spring and Summer of 2020, the COVID-19 pandemic was affecting the world 
 ### An Old Bike
 
 I started browsing Craigslist and Facebook Marketplace for a project motorcycle and started watching YouTube videos for inspiration. I saw a couple project motorcycles that didn't work out for various reasons, but I finally found one nearby with a valid title that looked fairly decent. A seller nearby had a 1983 Honda Shadow vt 500. Unfortunately, the description of the motorcycle wasn't very great. The person selling it received it as a part of a trade. He didn't know what was wrong with it other than what the previous owner had stated, "A bad motor". This isn't usually a good sign, but I had tons of time and the price was right. The only thing I was worried about was a cracked engine block. An issue like that would be pretty difficult and expensive to fix. My spouse and I headed to the seller's house and inspected the bike. It was in rough shape but we couldn't see any cracks so we took it home.
+![InTruck](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/non-technical/2020-08-02-Motorcycle/InTruck.jpg)
 
 # Starting Work on The Bike
 
 ### Initial Problems
 
 So, what exactly did "rough shape" mean? There were a number of cosmetic issues, missing trim, small rust spots, but that didn't concern me. What did was a box full of parts that had been taken off the bike. I had to make sense of these parts while trying to address the underlying issue of "A bad motor". First though, the easiest problem to address was the lack of battery. Thats a pretty easy one to diagnose. First I put the key in the ignition and turned it. Nothing happened. That is pretty symptomatic of a dead battery, but it could be a fuse too. It was easy to see, though, that right where a battery should be, there was none. At this point I started making a list of things I needed at the part store. I couldn't attempt to start it, but I could check some other simple things before heading out. I checked oil and coolant levels. As far as I saw, there was no coolant and when I checked the oil dipstick it was dry, so oil and coolant went on the list as well. 
+![IncompleteWithKiki](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/non-technical/2020-08-02-Motorcycle/IncompleteWithKiki.jpg)
 
 ### Missing Battery
 
