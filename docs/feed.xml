@@ -5,9 +5,9 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Thu, 20 Aug 2020 14:26:36 -0400</pubDate>
-    <lastBuildDate>Thu, 20 Aug 2020 14:26:36 -0400</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+      <pubDate>Thu, 20 Aug 2020 14:48:56 -0400</pubDate>
+    <lastBuildDate>Thu, 20 Aug 2020 14:48:56 -0400</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Motorcycle Rebuild</title>
