@@ -9,7 +9,12 @@ author:            lgarcia
 
 # 1983 Honda Shadow vt500
 
-![Complete1](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/non-technical/2020-08-02-Motorcycle/Complete/DSC_0783.JPG)
+Checkout the video for the TL;DR
+
+{% include youtube_embed.html id="RtIxz2rLDXg" %}
+
+More details below...
+
 
 ### COVID-19 and Relocation
 
