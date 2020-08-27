@@ -5,8 +5,8 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Wed, 26 Aug 2020 19:19:40 -0400</pubDate>
-    <lastBuildDate>Wed, 26 Aug 2020 19:19:40 -0400</lastBuildDate>
+      <pubDate>Wed, 26 Aug 2020 22:13:27 -0400</pubDate>
+    <lastBuildDate>Wed, 26 Aug 2020 22:13:27 -0400</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -143,6 +143,51 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
         
         
         <category>Non-Technical</category>
+        
+      </item>
+    
+      <item>
+        <title>Wyoming Coronavirus Data by County</title>
+        <description>&lt;h3 id=&quot;wyoming-coronavirus-data-by-county&quot;&gt;Wyoming Coronavirus Data by County&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Albany.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Big Horn.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Campbell.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Carbon.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Converse.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Crook.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Fremont.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Goshen.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Hot Springs.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Johnson.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Laramie.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Lincoln.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Natrona.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Niobrara.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Park.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Platte.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Sheridan.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Sublette.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Sweetwater.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Teton.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Uinta.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Washakie.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
+&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Weston.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Mar 2020 14:00:00 -0400</pubDate>
+        <link>/blog/technical/CoronavirusGraphs</link>
+        <guid isPermaLink="true">/blog/technical/CoronavirusGraphs</guid>
+        
+        <category>Coronavirus</category>
+        
+        <category>COVID</category>
+        
+        <category>AWS</category>
+        
+        <category>matplotlib</category>
+        
+        
+        <category>Technical</category>
         
       </item>
     
