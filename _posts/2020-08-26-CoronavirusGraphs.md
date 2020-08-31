@@ -9,7 +9,7 @@ author:            lgarcia
 
 ### Updated daily at 12:00 PM Eastern ###
 {: style="text-align: center;"}
-<A href="#about-this-project">Check out the details about how this was made</A>
+<A href="#about-this-project"> Check out the details about how this was made</A>
 {: style="text-align: center;"}
 
 {% include image.html url="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Albany.png" height=200 width=300 %}

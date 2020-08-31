@@ -5,14 +5,14 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Mon, 31 Aug 2020 14:59:50 -0400</pubDate>
-    <lastBuildDate>Mon, 31 Aug 2020 14:59:50 -0400</lastBuildDate>
+      <pubDate>Mon, 31 Aug 2020 15:03:34 -0400</pubDate>
+    <lastBuildDate>Mon, 31 Aug 2020 15:03:34 -0400</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Wyoming Coronavirus Data by County</title>
         <description>&lt;h3 style=&quot;text-align: center;&quot; id=&quot;updated-daily-at-1200-pm-eastern&quot;&gt;Updated daily at 12:00 PM Eastern&lt;/h3&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#about-this-project&quot;&gt;Check out the details about how this was made&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;#about-this-project&quot;&gt; Check out the details about how this was made&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Albany.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
 &lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/coronavirus-metrics/wyoming/Big Horn.png&quot; alt=&quot;&quot; style=&quot;width:300px !important; height:200px !important;&quot; /&gt;
