@@ -5,8 +5,8 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Mon, 31 Aug 2020 14:08:00 -0400</pubDate>
-    <lastBuildDate>Mon, 31 Aug 2020 14:08:00 -0400</lastBuildDate>
+      <pubDate>Mon, 31 Aug 2020 14:59:50 -0400</pubDate>
+    <lastBuildDate>Mon, 31 Aug 2020 14:59:50 -0400</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -98,7 +98,7 @@ Since I didn’t read any documentation beyond the tutorial what I failed to und
 I went forward with this idea, implemented an IAM role for S3 security, added the S3 upload, and changed the filenames of the graphs. I wanted to be sure to overwrite the files every time new data came in. This would keep my S3 bucket from getting too big and allow me to hard-link the S3 files while the data changed on the backend. What you see at the beginning of this page is the result. A series of graphs detailing the number of total cases recorded per day on a county by county basis in Wyoming.&lt;/p&gt;
 
 &lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
-&lt;p&gt;This was a fun and practical project for dipping your toes into the AWS landscape. I had to touch a lot of different tools and I learned a bit about each one as I went along. This was is a good project to start with, but the tutorial I followed was useful too if you’re starting. I’m glad I made mistakes along the way because it forced me to learn and I’m happy that this data is now more available to the public! &lt;a href=&quot;#updated-daily-at-1200-pm-eastern&quot;&gt;Check it out!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This was a fun and practical project for dipping your toes into the AWS landscape. I had to touch a lot of different tools and I learned a bit about each one as I went along. This was is a good project to start with, but the tutorial I followed was useful too if you’re starting. I’m glad I made mistakes along the way because it forced me to learn and I’m happy that this data is now more available to the public! You can see it on my &lt;a href=&quot;https://github.com/lgarcia2/WyomingCoronavirusMetrics&quot;&gt;github&lt;/a&gt; just note that the code will be a bit messy. Or feel free to take another look at the graphs&lt;a href=&quot;#updated-daily-at-1200-pm-eastern&quot;&gt;Check ‘em out!&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 26 Aug 2020 14:00:00 -0400</pubDate>
