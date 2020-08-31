@@ -2,22 +2,22 @@
 
   
     {
-        "title": "Motorcycle Rebuild",
-        "category": "Non-Technical",
-        "url": "/blog/non-technical/Motorcycle",
-        "tags": ["1983","Honda","Shadow","500","Motorcycle"],
-        "date": "2020-08-02 17:00:00 -0400",
+        "title": "Wyoming Coronavirus Data by County",
+        "category": "Technical",
+        "url": "/blog/technical/CoronavirusGraphs",
+        "tags": ["Coronavirus","COVID","AWS","matplotlib"],
+        "date": "2020-08-26 14:00:00 -0400",
         "language": "en"
     },
   
 
   
     {
-        "title": "Wyoming Coronavirus Data by County",
-        "category": "Technical",
-        "url": "/blog/technical/CoronavirusGraphs",
-        "tags": ["Coronavirus","COVID","AWS","matplotlib"],
-        "date": "2020-03-08 14:00:00 -0400",
+        "title": "Motorcycle Rebuild",
+        "category": "Non-Technical",
+        "url": "/blog/non-technical/Motorcycle",
+        "tags": ["1983","Honda","Shadow","500","Motorcycle"],
+        "date": "2020-08-02 17:00:00 -0400",
         "language": "en"
     },
   
