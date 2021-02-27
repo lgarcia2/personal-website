@@ -5,8 +5,8 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Mon, 31 Aug 2020 15:03:34 -0400</pubDate>
-    <lastBuildDate>Mon, 31 Aug 2020 15:03:34 -0400</lastBuildDate>
+      <pubDate>Sat, 27 Feb 2021 15:42:11 -0500</pubDate>
+    <lastBuildDate>Sat, 27 Feb 2021 15:42:11 -0500</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -48,13 +48,14 @@
 &lt;p&gt;A horizontal line would suggest that the number of cases has not changed at all over time. This would mean that COVID-19 has been eliminated or has not been reported from the community.&lt;/p&gt;
 
 &lt;h3 id=&quot;straight-diagonal-line&quot;&gt;Straight Diagonal Line&lt;/h3&gt;
-&lt;p&gt;A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the number of new cases is not increasing, but the number of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.&lt;/p&gt;
+&lt;p&gt;A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the rate of new cases is not increasing, but the rate of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.
+&lt;em&gt;Note: You may notice that all the graphs have a period with a VERY straight diagonal line. See the &lt;a href=&quot;#feb_update&quot;&gt;February Update&lt;/a&gt; section for why this occurred.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exponential-curve&quot;&gt;Exponential Curve&lt;/h3&gt;
-&lt;p&gt;A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the number of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.&lt;/p&gt;
+&lt;p&gt;A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the rate of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.&lt;/p&gt;
 
 &lt;h3 id=&quot;flattening-curve&quot;&gt;Flattening Curve&lt;/h3&gt;
-&lt;p&gt;A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much and is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.&lt;/p&gt;
+&lt;p&gt;A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much. This is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.&lt;/p&gt;
 
 &lt;h3 id=&quot;why-did-i-make-this&quot;&gt;Why Did I Make This?&lt;/h3&gt;
 
@@ -100,6 +101,9 @@ I went forward with this idea, implemented an IAM role for S3 security, added th
 &lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
 &lt;p&gt;This was a fun and practical project for dipping your toes into the AWS landscape. I had to touch a lot of different tools and I learned a bit about each one as I went along. This was is a good project to start with, but the tutorial I followed was useful too if you’re starting. I’m glad I made mistakes along the way because it forced me to learn and I’m happy that this data is now more available to the public! You can see it on my &lt;a href=&quot;https://github.com/lgarcia2/WyomingCoronavirusMetrics&quot;&gt;github&lt;/a&gt; just note that the code will be a bit messy. Or feel free to take another look at the graphs&lt;a href=&quot;#updated-daily-at-1200-pm-eastern&quot;&gt;Check ‘em out!&lt;/a&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;feb_update&quot;&gt;Update - February 2021&lt;/h2&gt;
+&lt;p&gt;Wow, looking back on this project, I really did not expect it to run this long. Except for a period between October and December, the code is still running. During that period, the Wyoming Department of Health’s website changed slightly. This caused the function that parsed the data to fail. This meant that the data for that time period was not gathered correctly. I fixed this in December, but since the real data was not there, it had to be extrapolated between the point where it failed and when I fixed it. This is why a very straight diagonal line is present in all the graphs.
+If this project were to be something more serious, hopefully I would have noticed the errors earlier. Another, better way this could have been handled would be to catch failures in the code execution and have some kind of notification sent out when failures occurred. For a simple project like this though, that much hardening didn’t seem worth it to me. I also didn’t expect to be supporting it for this long, but I am happy that I can still check it periodically to see how Wyoming is doing.&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Aug 2020 14:00:00 -0400</pubDate>
         <link>/blog/technical/CoronavirusGraphs</link>

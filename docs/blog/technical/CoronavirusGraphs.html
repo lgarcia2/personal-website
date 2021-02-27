@@ -117,11 +117,12 @@
 <h3 id="horizontal-line">Horizontal Line</h3>
 <p>A horizontal line would suggest that the number of cases has not changed at all over time. This would mean that COVID-19 has been eliminated or has not been reported from the community.</p>
 <h3 id="straight-diagonal-line">Straight Diagonal Line</h3>
-<p>A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the number of new cases is not increasing, but the number of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.</p>
+<p>A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the rate of new cases is not increasing, but the rate of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.
+<em>Note: You may notice that all the graphs have a period with a VERY straight diagonal line. See the <a href="#feb_update">February Update</a> section for why this occurred.</em></p>
 <h3 id="exponential-curve">Exponential Curve</h3>
-<p>A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the number of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.</p>
+<p>A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the rate of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.</p>
 <h3 id="flattening-curve">Flattening Curve</h3>
-<p>A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much and is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.</p>
+<p>A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much. This is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.</p>
 <h3 id="why-did-i-make-this">Why Did I Make This?</h3>
 <p>I made this because it wasn’t shown on the <a href="https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/">Wyoming Department of Health website</a>, at least not at the time of writing this. The data was there, I saw it change county to county every day. You could also see these statistics from the whole state. However, I wanted to see the graphs on a per-county basis. Since this wasn’t on the website I had to make it myself.
 Additionally, I wanted to learn more about AWS functionality and offerings. This would be a perfect project to dip my toes in with some other pieces of technology.</p>
@@ -152,6 +153,9 @@ Since I didn’t read any documentation beyond the tutorial what I failed to und
 I went forward with this idea, implemented an IAM role for S3 security, added the S3 upload, and changed the filenames of the graphs. I wanted to be sure to overwrite the files every time new data came in. This would keep my S3 bucket from getting too big and allow me to hard-link the S3 files while the data changed on the backend. What you see at the beginning of this page is the result. A series of graphs detailing the number of total cases recorded per day on a county by county basis in Wyoming.</p>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>This was a fun and practical project for dipping your toes into the AWS landscape. I had to touch a lot of different tools and I learned a bit about each one as I went along. This was is a good project to start with, but the tutorial I followed was useful too if you’re starting. I’m glad I made mistakes along the way because it forced me to learn and I’m happy that this data is now more available to the public! You can see it on my <a href="https://github.com/lgarcia2/WyomingCoronavirusMetrics">github</a> just note that the code will be a bit messy. Or feel free to take another look at the graphs<a href="#updated-daily-at-1200-pm-eastern">Check ‘em out!</a></p>
+<h2 id="feb_update">Update - February 2021</h2>
+<p>Wow, looking back on this project, I really did not expect it to run this long. Except for a period between October and December, the code is still running. During that period, the Wyoming Department of Health’s website changed slightly. This caused the function that parsed the data to fail. This meant that the data for that time period was not gathered correctly. I fixed this in December, but since the real data was not there, it had to be extrapolated between the point where it failed and when I fixed it. This is why a very straight diagonal line is present in all the graphs.
+If this project were to be something more serious, hopefully I would have noticed the errors earlier. Another, better way this could have been handled would be to catch failures in the code execution and have some kind of notification sent out when failures occurred. For a simple project like this though, that much hardening didn’t seem worth it to me. I also didn’t expect to be supporting it for this long, but I am happy that I can still check it periodically to see how Wyoming is doing.</p>
        </section>
        <footer class="post-footer">
            <div itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +227,7 @@ var config = {
 <script src="/js/post.js"></script>
        <footer class="site-footer">
     <button class="go-to-top"></button>
-   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2020
+   <p class="copyright"><a href="" title="Luis Garcia">Luis Garcia</a> &copy; 2021
     <!--<a href="/feed.xml" title="RSS Feed">RSS Feed</a></p>-->
    <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a></p>
 </footer>
