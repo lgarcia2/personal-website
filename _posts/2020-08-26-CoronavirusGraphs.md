@@ -48,13 +48,13 @@ These graphs show the number of COVID-19 (Coronavirus) cases that have been repo
 A horizontal line would suggest that the number of cases has not changed at all over time. This would mean that COVID-19 has been eliminated or has not been reported from the community.
 
 ### Straight Diagonal Line 
-A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the number of new cases is not increasing, but the number of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.
+A straight diagonal line from the lower left hand corner to the upper right hand corner means that the number of COVID-19 cases is increasing linearly. That is, the rate of new cases is not increasing, but the rate of new cases is not decreasing. COVID-19 is still spreading, but its rate of spread is not changing. A line like this is not good news or bad news, more people are getting sick which is bad, but the rate of spread is not increasing which is good.
 
 ### Exponential Curve
-A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the number of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.
+A curved line starting small from the left corner and increasing more and more is a bad sign. This is an exponential curve that means that the rate of new cases is increasing over time. This means that COVID-19 is spreading more and more from day to day. This is the worst sign since it indicates that the disease is continuing to spread at a more rapid pace.
 
 ### Flattening Curve
-A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much and is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.
+A curved line that increases quickly but levels out is a good sign. This means that a lot of cases were reported initially but the number of new cases has slowed. This means that COVID-19 is not spreading as much. This is what we want. If it levels out completely, like the horizontal line it means that COVID-19 has been eliminated or is not being reported in the community.
 
 
 ### Why Did I Make This?
