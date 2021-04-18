@@ -5,8 +5,8 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Sat, 27 Feb 2021 15:42:11 -0500</pubDate>
-    <lastBuildDate>Sat, 27 Feb 2021 15:42:11 -0500</lastBuildDate>
+      <pubDate>Sun, 18 Apr 2021 13:22:19 -0400</pubDate>
+    <lastBuildDate>Sun, 18 Apr 2021 13:22:19 -0400</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -271,7 +271,7 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
 
 &lt;h2 id=&quot;my-first-idea&quot;&gt;My First Idea&lt;/h2&gt;
 
-&lt;p&gt;AWS costs money, and I didn’t want to pay. I wanted my cake and to eat it to, that is, I wanted my images to be hosted somewhere but I wanted to have strong control over those images and my IP (intellectual property). I probably could have used Imgur, Flickr, or maybe even Instagram as free public solutions to host my images. I didn’t like the inherent public nature of image hosting on the platform. For my pictures with my friends, sure they’re great. Vacation pictures, awesome! For storing my amateur photography? No way. &lt;img src=&quot;https://i.giphy.com/media/fceh5CXz9mjHa/200.webp&quot; alt=&quot;Protected GIF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;AWS costs money, and I didn’t want to pay. I wanted my cake and to eat it to, that is, I wanted my images to be hosted somewhere but I wanted to have strong control over those images and my IP (intellectual property). I probably could have used Imgur, Flickr, or maybe even Instagram as free public solutions to host my images. I didn’t like the inherent public nature of image hosting on the platform. For my pictures with my friends, sure they’re great. Vacation pictures, awesome! For storing my amateur photography? No way. &lt;img src=&quot;s3://luisorlandogarcia.com-images/technical/AWSImageHosting/WeirdAl_Foil.webp&quot; alt=&quot;Protected GIF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I tried using a private or even public album with Google Photos, but it seems Google has gotten wise and discourages direct links to photos. It seems like some companies may have come up with ways to get around this, but most of those seemed like hack-y solutions.&lt;/p&gt;
 

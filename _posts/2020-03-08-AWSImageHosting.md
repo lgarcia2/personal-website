@@ -17,7 +17,7 @@ For my initial implementation, I was lucky enough to have the option to host my 
 
 ## My First Idea
 
-AWS costs money, and I didn't want to pay. I wanted my cake and to eat it to, that is, I wanted my images to be hosted somewhere but I wanted to have strong control over those images and my IP (intellectual property). I probably could have used Imgur, Flickr, or maybe even Instagram as free public solutions to host my images. I didn't like the inherent public nature of image hosting on the platform. For my pictures with my friends, sure they're great. Vacation pictures, awesome! For storing my amateur photography? No way. ![Protected GIF](https://i.giphy.com/media/fceh5CXz9mjHa/200.webp)
+AWS costs money, and I didn't want to pay. I wanted my cake and to eat it to, that is, I wanted my images to be hosted somewhere but I wanted to have strong control over those images and my IP (intellectual property). I probably could have used Imgur, Flickr, or maybe even Instagram as free public solutions to host my images. I didn't like the inherent public nature of image hosting on the platform. For my pictures with my friends, sure they're great. Vacation pictures, awesome! For storing my amateur photography? No way. ![Protected GIF](s3://luisorlandogarcia.com-images/technical/AWSImageHosting/WeirdAl_Foil.webp)
 
 I tried using a private or even public album with Google Photos, but it seems Google has gotten wise and discourages direct links to photos. It seems like some companies may have come up with ways to get around this, but most of those seemed like hack-y solutions.
 
