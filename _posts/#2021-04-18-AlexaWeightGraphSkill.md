@@ -1,8 +1,8 @@
 ---
 layout:            post
-title:             Alexa Skill - Weight Graph
+title:             Creating an Alexa Skill with Serverless
 date:              2021-04-18 14:00:00 -0200
-tags:              Alexa Echo Skill AWS Amazon
+tags:              Alexa Echo Skill AWS Amazon Serverless Framework
 category:          Technical
 author:            lgarcia
 ---
