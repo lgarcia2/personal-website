@@ -2,6 +2,17 @@
 
   
     {
+        "title": "Creating an Alexa Skill with Visual Studio Code and the Serverless Framework",
+        "category": "Technical",
+        "url": "/blog/technical/AlexaSkillWithServerless",
+        "tags": ["Alexa","Echo","Skill","AWS","Amazon","Serverless","Framework","Visual","Studio","Code"],
+        "date": "2021-04-19 12:00:00 -0400",
+        "language": "en"
+    },
+  
+
+  
+    {
         "title": "Wyoming Coronavirus Data by County",
         "category": "Technical",
         "url": "/blog/technical/CoronavirusGraphs",

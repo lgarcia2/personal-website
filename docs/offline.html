@@ -71,6 +71,176 @@
 <main class="content" role="main">
    <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header short-diver">
+           <h1 class="post-title" itemprop="name headline">Creating an Alexa Skill with Visual Studio Code and the Serverless Framework</h1>
+           <section class="post-meta">
+                <time datetime="2021-04-19T12:00:00-04:00" itemprop="datePublished">Apr 19, 2021</time> 
+                on
+                <span><a href="">Alexa</a></span>
+                <span><a href="">Echo</a></span>
+                <span><a href="">Skill</a></span>
+                <span><a href="">AWS</a></span>
+                <span><a href="">Amazon</a></span>
+           </section>
+       </header>
+       <section class="post-content short-diver" itemprop="articleBody">
+           <h1 id="lets-make-an-alexa-skill-with-the-visual-studio-code-and-the-serverless-framework">Lets Make an Alexa Skill with the Visual Studio Code and the Serverless Framework!</h1>
+<p>Checkout the completed project <a href="https://github.com/lgarcia2/DemoAlexaSkillWithServerless">on my github!</a></p>
+<p>I’ve been toying around with more tools, frameworks, and other things I find interesting these days. I’m interested in creating another Alexa Skill, but I’ve never had a good time managing the infrastructure and deployment. I’ve only used the free developer console and its tooling. Its been kind of a pain to provision resources, develop, and prototype rapidly. I’m fully willing to accept that I may be doing something wrong, but I haven’t yet found what.</p>
+<p>I’ve been playing with the <a href="https://www.serverless.com/">Serverless Framework</a> lately and have found it pleasant to work with for describing AWS Infrastructure as Code. Serverless will create and deploy an AWS Cloud Formation stack for you. This tool seemed to me like a good way to solve my past problems when developing Alexa Skills. Hopefully it will help solve some of your problems too or at least provide a good guild to this specific case.</p>
+<h1 id="before-you-start">Before You Start</h1>
+<p>Before you continue to read, I wrote this article after I developed a couple Alexa skills. I will skip over a lot of the details of creating your first skill. Instead I’m focusing on the specific case of creating a new skill with Visual Studio Code and deploying the AWS infrastructure with the Serverless Framework. If you’re developing your first ever Alexa skill, I encourage you to keep reading, but a better guide might be <a href="https://developer.amazon.com/en-US/docs/alexa/alexa-skills-kit-sdk-for-nodejs/develop-your-first-skill.html">the one from Amazon themselves</a></p>
+<h1 id="visual-studio-code">Visual Studio Code</h1>
+<p>I’ve worked with the Microsoft Stack pretty extensively and I’m pretty accustomed to Visual Studio. Lately, a lot of my work has been directing me more towards Visual Studio Code though. I enjoy the tool for its relative familiarity, but also how it can integrate and work with a more diverse set of programming languages. It also just so happens supported by Amazon for developing skills via the <a href="https://marketplace.visualstudio.com/items?itemName=ask-toolkit.alexa-skills-kit-toolkit">Alexa Skills Toolkit extension for Visual Studio</a></p>
+<p>There are some pretty good guides out there for working with the toolkit that I used when writing and developing this. Feel free to check them out while you’re here.</p>
+<ul>
+ <li><a href="https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/get-started-with-the-ask-toolkit-for-visual-studio-code.html">Getting Started</a></li>
+ <li><a href="https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/vs-code-ask-skills.html">Create Skills</a></li>
+</ul>
+<h1 id="set-up-the-environment">Set Up the Environment</h1>
+<p>I started by getting everything set up.</p>
+<ol>
+ <li>First, I downloaded and installed <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+ <li>I chose to use <a href="https://www.python.org/">Python 3.8</a> as my language of choice for developing this skill, so I made sure to add that <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">extension.</a> Python isn’t required for this though. Alexa skills are supported for a number of programming languages.</li>
+ <li>I installed the <a href="https://marketplace.visualstudio.com/items?itemName=ask-toolkit.alexa-skills-kit-toolkit">Alexa Skills Toolkit extension</a>.</li>
+ <li>You’ll need <a href="https://www.npmjs.com/get-npm">NPM</a> to install Serverless. Once that’s installed, follow the <a href="https://www.serverless.com/framework/docs/providers/aws/guide/installation/">Serverless Install Instructions</a> to get serverless installed. The <a href="https://aws.amazon.com/cli/">AWS CLI tool</a> is required too in case you didn’t already have it.</li>
+ <li>I already had both an <a href="https://aws.amazon.com/">AWS account</a> and an <a href="https://www.developer.amazon.com/">Amazon Developer account</a>, so I didn’t need to create those, but if you don’t have them you’ll have to create those accounts. Make sure you’re able to use the AWS cli tool too!</li>
+ <li>After getting everything installed, I logged in and followed the <a href="https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/get-started-with-the-ask-toolkit-for-visual-studio-code.html">Getting Started</a> guide. If you’ve never developed a skill before, or have never used the extension, its an important guide to follow.</li>
+ <li>I created a directory and got it setup with git, <a href="https://github.com/lgarcia2/DemoAlexaSkillWithServerless">check it out here!</a></li>
+</ol>
+<h1 id="creating-the-skill">Creating the Skill</h1>
+<p>After launching Visual Studio Code and opening the Alexa Skills Toolkit extension, I clicked the ‘Create new skill’ button. That button opens a new tab for creating a new skill. This tab contains all the parameters that must be filled out to create a new skill. Most of the them are fairly obvious, but I’ll describe what I put in the parameters and the decisions that drove those inputs.
+<img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/AlexaSkillWithServerless/VisualStudioScreenshot.PNG" alt="PNG" /></p>
+<ul>
+ <li><strong>Skill Name</strong> - This is the name of your skill. I used ‘Demo’ so I could invoke the skill by saying something like: “Alexa, open Demo.” I can always change this later before publishing if I wanted to publish this or expand the project further.</li>
+ <li><strong>Default Language</strong> - I chose ‘English’ because thats what I speak!</li>
+ <li><strong>Skill Model</strong> - Custom, its the only option right now.</li>
+ <li><strong>Choose a method to host your skill’s backend resources</strong> - A lot of good information on this can be found <a href="https://developer.amazon.com/en-IN/docs/alexa/hosted-skills/build-a-skill-end-to-end-using-an-alexa-hosted-skill.html">here.</a> For my purposes, I chose the “Provision your own” option so that I could host it in my AWS account. I can deploy it and manage it there without any restriction from the Alexa free-tier. As much as I want to just have the Alexa developer space host it, I found it a bit restricting. That being said, I’ll still have to work with the developer console, but I’ll spend much less time there. Besides, I’m <a href="/blog/technical/CoronavirusGraphs">no stranger</a> <a href="/blog/technical/AWSImageHosting">to AWS.</a> and deploying this to AWS with Serverless is the point of the article!</li>
+ <li><strong>Programing Language</strong> - Python, as I mentioned above.</li>
+ <li><strong>Local Directory</strong> - I chose the folder/repository I created earlier.</li>
+</ul>
+<p>After I filled out all the parameters, I clicked the final ‘Create’ button and waited for the extension to build out some skeleton code for me.</p>
+<h1 id="building-and-deploying-the-skill">Building and Deploying The Skill</h1>
+<p>Since I chose to host my AWS resources outside of the Alexa developer space, and since I’m using serverless, I will generally have two deployment steps.</p>
+<ul>
+ <li>Deploy Skill configuration to Alexa developer account</li>
+ <li>Deploy AWS resources to AWS account</li>
+</ul>
+<p>The steps can technically be done in any order, but its important to make sure they are coordinated well so that any change made to one will affect the other appropriately. That is, if I add some new interaction in the skill configuration, there should be corresponding code to back it up. With that in mind, its probably best to deploy the skill configuration first then the AWS resources. All that being said, I may change my mind on this as time progresses. Any developer in any project should be aware of their deployment order (if they have one) and dependencies.</p>
+<h2 id="first-skill-deployment">First Skill Deployment</h2>
+<p>When I first clicked the ‘Create’ button from the Visual Studio Extension, it automatically created and deployed the default ‘hello-world’ configuration to the developer space. Since this is just a demo, I’m not going to change the default hello-world skill too much. So for now, I’m just going to log-in to the <a href="https://developer.amazon.com/alexa/console/ask">skill console</a>, open up the skill and note the Skill Id. The skill you created is found in the main page of the Alexa developer console. You can click the name of your skill to get into the details of it. Once the skill is open you can go to the ‘Build’ tab, then click ‘Endpoint’. We’re going to use a Lambda for our skill endpoint, so I’ll click the AWS Lambda ARN radio button and then note the Skill ID that appears to the right. Be sure to note the whole string there, it should be unique to your skill.
+<img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/AlexaSkillWithServerless/DeveloperConsoleSkillId.PNG" alt="PNG" /></p>
+<h2 id="first-aws-resource-deployment">First AWS Resource Deployment</h2>
+<p>The next thing on my list was to deploy the AWS resources to make the skill work. Right now, all I’ve got is the <code>hello_world.py</code> file that came by in the lambda directory by default. It should be easy enough to stand it up in AWS and make sure everything works as intended.</p>
+<p>If I were doing this manually, I’d zip up the file and its dependencies and then upload it to the lambda section of the AWS console. As I’ve mentioned, I found that to be rather tedious, so I’m choosing to use the <a href="https://www.serverless.com/">Serverless Framework</a> to define, package, and deploy all my AWS resources. This should make things easy to rapidly prototype, test, and deploy.</p>
+<p>First I’ll initialize my serverless project by <code>cd</code>‘ing into the <code>lambda</code> directory that was created and I’ll run <code>serverless create --template aws-python</code>. This will create a nice little serverless template file (<code>serverless.yml</code>) for me to use. You can always create this file manually if you know what you’re doing. The command will also create a default function <code>handler.py</code>. I’ll go ahead and remove that file since I don’t need it, but I will tweak my <code>serverless.yml</code> file accordingly.</p>
+<p>The <code>serverless.yml</code> file we created has a lot of information in it that is useful if you’re starting out with serverless. Check it all out if you have time, but I only care about a few parameters. First, I’ll change the value in the <code>service:</code> to <code>DemoAlexaSkill</code> since thats a good memorable name for the Cloud Formation Stack that will be created. Under <code>provider:</code> and under <code>runtime:</code> I made sure I specified <code>python3.8</code>. I also like to define the default stage and region too, so I’ll uncomment those lines.</p>
+<p>The top of my file looks like this:</p><pre><code>service: DemoAlexaSkill
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: us-east-1
+</code></pre>
+<p>Next, we can skip ahead to defining our lambda function.</p>
+<p>Lambda functions are defined in the <code>functions:</code> block. By default, Serverless created an example ‘hello’ function with the handler.py file we deleted earlier. We can see how Serverless defined the function in this block of code in the serverless.yml file:</p><pre><code>functions:
+  hello:
+    handler: handler.hello
+</code></pre>
+<p>We only need to change a little bit for now to get our skill working, but I strongly encourage you to read more about Serverless so that you can get a better idea of what it can do.</p>
+<p>First, we want to define the lambda’s entry point. A default function was defined in the <code>handler.py</code> file when we created the <code>serverless.yml</code> file. We’re using different lambda code I’ll replace it with the <code>hello_world.py</code> that was created with our skill. That file contains lambda function code so we can just swap some parameters to that the snippet so that our file now looks like this:</p><pre><code>functions:
+  hello:
+    handler: hello_world.handler
+</code></pre>
+<p><code>hello_world</code> is the name of the file containing the lambda code to execute, as in <code>hello_world.py</code>. The <code>.handler</code> refers to the entry point within that file. In the old, default <code>handler.py</code> that serverless created, the method’s name was <code>hello</code>. In our code, its <code>handler</code>.</p>
+<p>Now that the code is ‘done’, we’ll enable it to be used by our skill created in the developer console. With serverless we can just reference it in the serverless file. Its pretty easy as you can see with the updated block.</p><pre><code>functions:
+  hello:
+    handler: hello_world.handler
+    events: 
+      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx
+</code></pre>
+<p><a href="https://www.serverless.com/examples/aws-node-alexa-skill">This is a good quick reference if you need more info.</a>.</p>
+<p>The new parameter <code>alexaSkill:</code> should be populated with your Skill Id that I mentioned to note earlier. Do not use <code>amzn1.ask.skill.xx-xx-xx-xx</code>. Use your own skill’s id from the developer console.</p>
+<p>Once that’s done we’re ready to deploy! Make sure you have the AWS CLI configured correctly (you need an IAM user that can deploy resources to your AWS account). Also make sure that serverless has the proper AWS configuration as well. If all is configured correctly, you can run this command to see your lambda deployed:</p><pre><code>serverless deploy
+</code></pre>
+<h2 id="look-for-the-lambda-in-aws">Look for the Lambda in AWS</h2>
+<p>We defined the serverless stage as ‘dev’ and we know the service was named ‘DemoAlexaSkill’ in the serverless.yml we created earlier. After running the deploy command, our code was deployed in our region as a Cloud Formation Stack with a name like DemoAlexaSkill-dev. ‘DemoAlexaSkill’ comes from what was defined as the service name and ‘dev’ comes from the serverless stage. To find the lambda function you can click into and explore the ‘Resources’ tab in the Cloud Formation Stack. Alternatively, since we know the name in our serverless.yml file, we can look for a lambda created with the name ‘DemoAlexaSkill-dev-hello’. ‘DemoAlexaSkill’ comes from what was defined as the service name. ‘dev’ comes from the stage and ‘hello’ is from the name we gave to the lambda.
+<img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/AlexaSkillWithServerless/FunctionOverview.PNG" alt="PNG" /></p>
+<p>After getting into the lambda function in the console, you can see that it is configured to be invoked by Alexa Skills Kit and it should have the permissions automatically created for it too; the wonders of serverless! Make sure to copy the new lambda function’s ARN. We’ll need it for the next step.</p>
+<h1 id="define-skill-configuration-and-test">Define Skill Configuration and Test!</h1>
+<p>To finish things up, we can go back to the <a href="https://developer.amazon.com/alexa/console/ask">Alexa Developer console</a>. Just like before, we need to find the skill that we created before (mine’s named ‘Demo’). After getting into the skill, we need to configure its build. So click the ‘Build’ tab at the top and then the ‘Endpoint’ item from the menu on the left. From there, just like when we copied the Skill Id before, click the AWS Lambda ARN radio button. This time we’ll paste in the ARN of the lambda function we created earlier into the ‘Default Region’ box. This will define our lambda as the endpoint to call when the Alexa skill is invoked. After the value is in the box, you can click ‘Save Endpoints’ at the top of the page and we’re ready to test.
+<img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/AlexaSkillWithServerless/DeveloperConsoleLambdaArn.PNG" alt="PNG" /></p>
+<p>Testing from the Developer console is pretty easy, you can just go to the ‘Test’ tab at the top of the Skill page. Once you’ve gotten to the page, most things will be greyed out. In order to start testing, the tests must be enabled for development by selecting ‘Development’ from the drop down at the top of the page. From there you can toy around with enabling your mic, and treating the test page just like an Alexa device. You can test the skill we created by clicking the mic box and saying ‘hello world’. From an efficiency point of view, I prefer to type ‘hello world’ in the box. Regardless of your choice, Alexa should echo back to you the message “Welcome, you can say Hello or Help. Which would you like to try?”. This is the behavior that was implemented in the hello_world.py file by default. Now you’re all set up to start playing with Alexa!</p>
+<h1 id="cleanup">Cleanup</h1>
+<p>In order to cleanup the resources we deployed to the AWS account we can remove them with serverless. Its as easy as running the following command in the directory where the serverless.yml exists.</p><pre><code>serverless remove
+</code></pre>
+<p>That’ll cleanup all the things we deployed to AWS. If you want to remove the skill from the Alexa Developer console, that can be done too. You can go to the main page in the Alexa Developer Console where all your skills are listed. There should be an ‘Actions’ column with a dropdown menu on the skill that we created. If you choose the ‘Delete’ action, the skill will be deleted.</p>
+<h1 id="final-thoughts">Final Thoughts</h1>
+<p>I wanted to have an easier time creating and deploying skills. Serverless, seems to me, to solve this problem pretty well. Its straight forward and I can keep track of everything that I’ve deployed. Its easy to define all the infrastructure as code in the serverless.yml file. Linking the AWS and Alexa Skill is straightforward too. I had a great time learning this and I hope you did too!</p>
+<p>If you want to reference the code, check it out <a href="https://github.com/lgarcia2/DemoAlexaSkillWithServerless">on my github page</a></p>
+       </section>
+       <footer class="post-footer"> 
+           <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+   <div class="author-image">
+       <div class="img image-bg" style="background-image: url(/assets/icon_512x512.png)">
+            <a class="hidden" href="/assets/icon_512x512.png" itemprop="image">Luis Garcia's Picture</a>
+       </div>
+   </div>
+   <div class="short-diver">
+       <h4 class="author" itemprop="name">Luis Garcia</h4>
+       <p itemprop="description">Developing fun and interesting projects</p>
+       <div class="author-meta">
+            <span class="author-location icon-location" itemprop="nationality">New York City</span>
+            <span class="author-stats">
+			<i class="icon-stats-bars"></i>
+			8 posts			
+			</span>
+            <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
+       </div>
+   </div>
+</div>
+       </footer>
+   </article>
+</main>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+   <div class="pswp__bg"></div>
+   <div class="pswp__scroll-wrap">
+       <div class="pswp__container">
+           <div class="pswp__item"></div>
+           <div class="pswp__item"></div>
+           <div class="pswp__item"></div>
+       </div>
+       <div class="pswp__ui pswp__ui--hidden">
+           <div class="pswp__top-bar">
+               <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+               <div class="pswp__preloader">
+                   <div class="pswp__preloader__icn">
+                       <div class="pswp__preloader__cut">
+                           <div class="pswp__preloader__donut"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+               <div class="pswp__share-tooltip"></div>
+           </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+           <div class="pswp__caption">
+               <div class="pswp__caption__center"></div>
+           </div>
+       </div>
+   </div>
+</div>
+<main class="content" role="main">
+   <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-header short-diver">
            <h1 class="post-title" itemprop="name headline">Wyoming Coronavirus Data by County</h1>
            <section class="post-meta">
                 <time datetime="2020-08-26T14:00:00-04:00" itemprop="datePublished">Aug 26, 2020</time> 
@@ -167,7 +337,7 @@ If this project were to be something more serious, hopefully I would have notice
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -302,7 +472,7 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -419,7 +589,7 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -555,7 +725,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302</p>
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -640,7 +810,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302</p>
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -714,7 +884,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302</p>
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
@@ -788,7 +958,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302</p>
             <span class="author-location icon-location" itemprop="nationality">New York City</span>
             <span class="author-stats">
 			<i class="icon-stats-bars"></i>
-			7 posts			
+			8 posts			
 			</span>
             <span class="author-link icon-link" itemprop="url"><a href="http://www.luisgarcia.me">About</a></span>
        </div>
