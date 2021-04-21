@@ -1,6 +1,6 @@
 ---
 layout:            post
-title:             Creating an Alexa Skill with Visual Studio Code and the Serverless Framework
+title:             Create an Alexa Skill with VS Code and the Serverless Framework
 date:              2021-04-19 14:00:00 -0200
 tags:              Alexa Echo Skill AWS Amazon Serverless Framework Visual Studio Code
 category:          Technical

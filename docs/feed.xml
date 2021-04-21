@@ -5,12 +5,12 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Tue, 20 Apr 2021 22:56:39 -0400</pubDate>
-    <lastBuildDate>Tue, 20 Apr 2021 22:56:39 -0400</lastBuildDate>
+      <pubDate>Tue, 20 Apr 2021 22:59:35 -0400</pubDate>
+    <lastBuildDate>Tue, 20 Apr 2021 22:59:35 -0400</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
-        <title>Creating an Alexa Skill with Visual Studio Code and the Serverless Framework</title>
+        <title>Create an Alexa Skill with VS Code and the Serverless Framework</title>
         <description>&lt;h1 id=&quot;lets-make-an-alexa-skill-with-the-visual-studio-code-and-the-serverless-framework&quot;&gt;Lets Make an Alexa Skill with the Visual Studio Code and the Serverless Framework!&lt;/h1&gt;
 
 &lt;p&gt;Checkout the completed project &lt;a href=&quot;https://github.com/lgarcia2/DemoAlexaSkillWithServerless&quot;&gt;on my github!&lt;/a&gt;&lt;/p&gt;
