@@ -13,9 +13,16 @@ Windows
 
 ### Jekyll
 Windows
-    In git bash run the following command
+    In git bash run the following command to install jekyll (https://jekyllrb.com/docs/installation/)
     ```
     $ gem install jekyll bundler
+    ```
+
+### Jekyll Dependencies
+Windows
+    In git bash run the following command to install the other dependencies
+    ```
+    $ bundle install
     ```
 
 
