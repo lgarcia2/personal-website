@@ -285,5 +285,6 @@ Make sure you have your aws profiles configured and it should deploy nicely for 
 Like last time you can go into the Alexa Developer Console and test your skill. With any luck you'll be able to verify the examples from earlier
 
 
+## Checkout the code
 
-
+You can check-out all the code on my [github page](https://github.com/lgarcia2/DemoAlexaSkillWithDatabase)
