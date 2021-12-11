@@ -2,6 +2,17 @@
 
   
     {
+        "title": "Create an Alexa Skill with a Dynamo Database",
+        "category": "Technical",
+        "url": "/blog/technical/AlexaSkillWithDatabase",
+        "tags": ["Alexa","Echo","Skill","AWS","Amazon","Serverless","Framework","Visual","Studio","Code"],
+        "date": "2021-12-09 11:00:00 -0500",
+        "language": "en"
+    },
+  
+
+  
+    {
         "title": "Create an Alexa Skill with VS Code and the Serverless Framework",
         "category": "Technical",
         "url": "/blog/technical/AlexaSkillWithServerless",
