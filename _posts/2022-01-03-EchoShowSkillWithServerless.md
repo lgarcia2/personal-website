@@ -294,6 +294,7 @@ So far, this has just been a tutorial on working with APL's. I want to make sure
 
 1. First lets initialize serverless by running the command `serverless create --template aws-python` in the lambda directory. 
 2. Rework the serverless.yml as follows 
+
 ```
 service: DemoEchoShowSkill
 frameworkVersion: '2'
@@ -314,6 +315,7 @@ functions:
     events: 
       - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx
 ```
+
 (Make sure you change your alexaSkill parameter so it matches whatever your skills skill Id is)
 
 3. Install the plugin `serverless-python-requirements` the ASK SDK is not in the standard libraries so you have to add the lib in your requirements.txt file and package it up when you deploy

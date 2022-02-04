@@ -317,156 +317,132 @@ if supported_interfaces.alexa_presentation_apl is not None:
 <p>So far, this has just been a tutorial on working with APL’s. I want to make sure I’m not forgetting Serverless since its our deployment mechanism. Let’s start working with it. See my <a href="https://luisgarcia.me/blog/technical/AlexaSkillWithServerless">first Serverless Alexa Skill post</a> for more details.</p>
 <ol>
  <li>First lets initialize serverless by running the command <code>serverless create --template aws-python</code> in the lambda directory.</li>
- <li>Rework the serverless.yml as follows
-```
-service: DemoEchoShowSkill
-frameworkVersion: ‘2’</li>
+ <li>Rework the serverless.yml as follows</li>
 </ol>
-<p>plugins:</p>
-<ul>
- <li>serverless-python-requirements
+<pre><code>service: DemoEchoShowSkill
+frameworkVersion: '2'
+
+plugins:
+  - serverless-python-requirements
 provider:
   name: aws
   runtime: python3.8
   lambdaHashingVersion: 20201221
 custom:
   pythonRequirements:
-dockerizePip: non-linux</li>
-</ul>
-<p>functions:
+    dockerizePip: non-linux
+
+functions:
   hello:
     handler: hello_world.handler
     events: 
-      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx</p>
-<pre><code>(Make sure you change your alexaSkill parameter so it matches whatever your skills skill Id is)
-
-3. Install the plugin `serverless-python-requirements` the ASK SDK is not in the standard libraries so you have to add the lib in your requirements.txt file and package it up when you deploy
-
-3. Deploy the skill with the command `serverless deploy` (Make sure you've configured your aws cli and profile)
-
-4. Once deployed, in the AWS developer console, go to the Build tab, then in the Endpoint section select "Aws Lambda ARN" and copy/paste the ARN of your deployed lambda function into the Default Region box and clid Save Endpoints, then re build the skill.
-
-
-# Test It Out!
-
-Now you can go to the Alexa Developer Console, go to the Test tab, make sure "Device Display" is checked and invoke your skill. I did this by typing 'hello world' in the Alexa Simulator textbox. (If you dont know your invocation name, you can go to Build -&gt; Invocations -&gt; Skill Invocation Name). Once your skill has been invoked you should be able to scroll down in the simulator and see the visuals!
-![PNG](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/FirstSuccessfulTest.PNG)
-
-
-# Further Reading
-
-If you're satisfied with our results so far, thats great, take what you learned and go apply it. I'm going to continue on though and explore some extra concepts now though. I want to be able to develop some of the following items so if you're interested keep reading.
-- Add the APL document to our repo and maintain it as part of the deployment.
-- Support adding graphics to the display.
-
-
-## Sync Changes Back to the Code
-
-After Creating our APL document we need to save our changes and build the model if you haven't done so in the above steps. After that we can sync the changes back to our code so the APL document can be worked with and committed.
-
-1. Save the Interface - This one's easy, at the top of the Developer Console in the build tab there's a "Save Interfaces" button. Click that.
-2. Build the Model - Another easy one, at the top of the Developer Console in the build tab there's a "Build Model" button. Click that, it may take some time, so be patient
-3. Sync the changes - This one's a little tricky. The best way I've found to do this is through VSCode. Go to the Alexa Skills Toolkit extension. From there you can see your skill (Mine's named "Demo Show"). Open up all the sub-options (not sure what to call these, but they're the "Skill manifest" and "Interaction model". We'll use "Alexa Presentation Language (APL)" menu later). Click Download on each one and then click the "Download" button when its page is open. If it asks you to select a folder select the whole project root (not the "Demo Show" folder, but the github repo name type folder i.e. "DemoEchoShowSkillWithServerless"). When a file opens up, you may have to ctrl+s to save it. This process should overwrite/add the correct files in the correct places.
-
-![PNG](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/DownloadConsoleFiles.PNG)
-
-Alternatively, in the "Skills Management" section in this same page you can "Download and edit skill" be careful with this one though. If you do it in the current directory it can overwrite and delete your files. If you use this, my suggestion is to download it to a seperate folder, then merge that folder into your current working directory.
-
-![PNG](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/SyncAfterEnableAPL.png)
-
-
-After this is done, you can git commit, push, whatever you want. That being said, any changes you to the local code wont be reflected back into the skill and the developer console until you deploy your changes back upstream. 
-
-## Sync Changes Back Upstream to the Developer Console
-
-Once you've got everything where you need it, in VSCode in the Alexa Skills Toolkit extension page theres the left column where we downloaded our skill manifest, interaction model, and APL. There's also an item to deploy the skill named "Deploy Skill". Click the item, and a page will open up. Make sure you hit the refresh button so you're aware of the most recent sync status and if you're ready and everything is up to date you can click the Deploy (or big red 'Force Deploy') button
-
-![PNG](https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/SyncUpstreamToConsole.PNG)
-
-
-&lt;!--## What If You Don't Wan't To Do That?
-
-There are still some other options for deploying an APL. And we can take a look at doing that. Before we get into that I do want to note that the last deployment method had other benefits too. In additon to the APL, we also deployed other items needed for our skill like the interaction model and items in the skill manifest (not the lambdas and other resources though, those were deployed by serverless)
-
-This next method of deploying an APL is only applicable to the APL document. --&gt;
-
-## Must Have More ...
-
-Text is great, but I'm looking forward to adding images. Let's see what's required.
-
-I started by adding a new APL. In the build menu, I clicked Multimodal Responses, then Create Visual Response. From here you can upload a template, use a blank document, or choose from one of the templates. I'm going to choose a template, I can't say I'm a very strong designer yet! However, the "Responsive Templates" tab doesnt have quite what I'm after. I'm going to go to the "Explore APL" tab and choose the "Image Display" template. Its pretty minimal with a background image, a title, a logo image, and a main image. 
-Here I'm really only interested in the main image so this template is great! I'm going to go ahead and save this template and name it "ImageAPLDocument". 
-
-Now I've got to sync it to my repo. I'll go back to the main Alexa Skill page, under the build tab, after clicking the 'CUSTOM' bar on the left, I clicked build so that my changes were saved. 
-
-Back in Visual Studio, I can sync my code with the skill in the console by going to the Alexa Skills Toolkit, clicking the 'Deploy Skill' menu (Notably, I'm not deployng yet). From here, I want to hit the refresh button to refresh my status. 
-
-Now I'm going to get my newly created APL document into my repo on disk. Still in the Alexa Skills Toolkit, under 'Skills Management' I clicked "Download and edit skill" and clicked my repository root folder when the popup came, this can overwrite your changes so see the next paragraph if you want alternative.
-
-You can also sync APL's by going to the Alexa Presentation Language section and click the Download item. The dropdown should be populated with my "ImageAPLDocument" doc that I created earlier (If it doesn't show up, give it ~10 sec) and I'll go ahead and download it. Notably, this just downloads it to memory. It does not download the files to disk, so if you want the APL document and its data sources in the right places, you may want to sync the whole project like I did earlier
-
-Now that I've got my ImageAPLDocument, I'm going to start making some changes! Although that may be misleading. I'm not going to change the APL docs at all, in fact, I'm just going to leave them be. However, I will change my lambda function. 
-
-I'm going to source some new images from the API https://picsum.photos/. With that API you can generate a random image of your requested size. I'm using https://picsum.photos/300/200. 
-I'll change my 'handler' function to look like this.
-
+      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx
 </code></pre>
-<p>def handle(self, handler_input):
+<p>(Make sure you change your alexaSkill parameter so it matches whatever your skills skill Id is)</p>
+<ol>
+ <li>
+   <p>Install the plugin <code>serverless-python-requirements</code> the ASK SDK is not in the standard libraries so you have to add the lib in your requirements.txt file and package it up when you deploy</p>
+ </li>
+ <li>
+   <p>Deploy the skill with the command <code>serverless deploy</code> (Make sure you’ve configured your aws cli and profile)</p>
+ </li>
+ <li>
+   <p>Once deployed, in the AWS developer console, go to the Build tab, then in the Endpoint section select “Aws Lambda ARN” and copy/paste the ARN of your deployed lambda function into the Default Region box and clid Save Endpoints, then re build the skill.</p>
+ </li>
+</ol>
+<h1 id="test-it-out">Test It Out!</h1>
+<p>Now you can go to the Alexa Developer Console, go to the Test tab, make sure “Device Display” is checked and invoke your skill. I did this by typing ‘hello world’ in the Alexa Simulator textbox. (If you dont know your invocation name, you can go to Build -&gt; Invocations -&gt; Skill Invocation Name). Once your skill has been invoked you should be able to scroll down in the simulator and see the visuals!
+<img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/FirstSuccessfulTest.PNG" alt="PNG"></p>
+<h1 id="further-reading">Further Reading</h1>
+<p>If you’re satisfied with our results so far, thats great, take what you learned and go apply it. I’m going to continue on though and explore some extra concepts now though. I want to be able to develop some of the following items so if you’re interested keep reading.</p>
+<ul>
+ <li>Add the APL document to our repo and maintain it as part of the deployment.</li>
+ <li>Support adding graphics to the display.</li>
+</ul>
+<h2 id="sync-changes-back-to-the-code">Sync Changes Back to the Code</h2>
+<p>After Creating our APL document we need to save our changes and build the model if you haven’t done so in the above steps. After that we can sync the changes back to our code so the APL document can be worked with and committed.</p>
+<ol>
+ <li>Save the Interface - This one’s easy, at the top of the Developer Console in the build tab there’s a “Save Interfaces” button. Click that.</li>
+ <li>Build the Model - Another easy one, at the top of the Developer Console in the build tab there’s a “Build Model” button. Click that, it may take some time, so be patient</li>
+ <li>Sync the changes - This one’s a little tricky. The best way I’ve found to do this is through VSCode. Go to the Alexa Skills Toolkit extension. From there you can see your skill (Mine’s named “Demo Show”). Open up all the sub-options (not sure what to call these, but they’re the “Skill manifest” and “Interaction model”. We’ll use “Alexa Presentation Language (APL)” menu later). Click Download on each one and then click the “Download” button when its page is open. If it asks you to select a folder select the whole project root (not the “Demo Show” folder, but the github repo name type folder i.e. “DemoEchoShowSkillWithServerless”). When a file opens up, you may have to ctrl+s to save it. This process should overwrite/add the correct files in the correct places.</li>
+</ol>
+<p><img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/DownloadConsoleFiles.PNG" alt="PNG"></p>
+<p>Alternatively, in the “Skills Management” section in this same page you can “Download and edit skill” be careful with this one though. If you do it in the current directory it can overwrite and delete your files. If you use this, my suggestion is to download it to a seperate folder, then merge that folder into your current working directory.</p>
+<p><img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/SyncAfterEnableAPL.png" alt="PNG"></p>
+<p>After this is done, you can git commit, push, whatever you want. That being said, any changes you to the local code wont be reflected back into the skill and the developer console until you deploy your changes back upstream.</p>
+<h2 id="sync-changes-back-upstream-to-the-developer-console">Sync Changes Back Upstream to the Developer Console</h2>
+<p>Once you’ve got everything where you need it, in VSCode in the Alexa Skills Toolkit extension page theres the left column where we downloaded our skill manifest, interaction model, and APL. There’s also an item to deploy the skill named “Deploy Skill”. Click the item, and a page will open up. Make sure you hit the refresh button so you’re aware of the most recent sync status and if you’re ready and everything is up to date you can click the Deploy (or big red ‘Force Deploy’) button</p>
+<p><img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/SyncUpstreamToConsole.PNG" alt="PNG"></p>
+<!--## What If You Don't Wan't To Do That?
+There are still some other options for deploying an APL. And we can take a look at doing that. Before we get into that I do want to note that the last deployment method had other benefits too. In additon to the APL, we also deployed other items needed for our skill like the interaction model and items in the skill manifest (not the lambdas and other resources though, those were deployed by serverless)
+This next method of deploying an APL is only applicable to the APL document. -->
+<h2 id="must-have-more-">Must Have More …</h2>
+<p>Text is great, but I’m looking forward to adding images. Let’s see what’s required.</p>
+<p>I started by adding a new APL. In the build menu, I clicked Multimodal Responses, then Create Visual Response. From here you can upload a template, use a blank document, or choose from one of the templates. I’m going to choose a template, I can’t say I’m a very strong designer yet! However, the “Responsive Templates” tab doesnt have quite what I’m after. I’m going to go to the “Explore APL” tab and choose the “Image Display” template. Its pretty minimal with a background image, a title, a logo image, and a main image. 
+Here I’m really only interested in the main image so this template is great! I’m going to go ahead and save this template and name it “ImageAPLDocument”.</p>
+<p>Now I’ve got to sync it to my repo. I’ll go back to the main Alexa Skill page, under the build tab, after clicking the ‘CUSTOM’ bar on the left, I clicked build so that my changes were saved.</p>
+<p>Back in Visual Studio, I can sync my code with the skill in the console by going to the Alexa Skills Toolkit, clicking the ‘Deploy Skill’ menu (Notably, I’m not deployng yet). From here, I want to hit the refresh button to refresh my status.</p>
+<p>Now I’m going to get my newly created APL document into my repo on disk. Still in the Alexa Skills Toolkit, under ‘Skills Management’ I clicked “Download and edit skill” and clicked my repository root folder when the popup came, this can overwrite your changes so see the next paragraph if you want alternative.</p>
+<p>You can also sync APL’s by going to the Alexa Presentation Language section and click the Download item. The dropdown should be populated with my “ImageAPLDocument” doc that I created earlier (If it doesn’t show up, give it ~10 sec) and I’ll go ahead and download it. Notably, this just downloads it to memory. It does not download the files to disk, so if you want the APL document and its data sources in the right places, you may want to sync the whole project like I did earlier</p>
+<p>Now that I’ve got my ImageAPLDocument, I’m going to start making some changes! Although that may be misleading. I’m not going to change the APL docs at all, in fact, I’m just going to leave them be. However, I will change my lambda function.</p>
+<p>I’m going to source some new images from the API https://picsum.photos/. With that API you can generate a random image of your requested size. I’m using https://picsum.photos/300/200. 
+I’ll change my ‘handler’ function to look like this.</p>
+<pre><code>def handle(self, handler_input):
         # type: (HandlerInput) -&gt; Response
-        logging.info(“Handling…”)
+        logging.info("Handling...")
         supported_interfaces = ask_utils.request_util.get_supported_interfaces(handler_input)
         # If this device supports APL 
         # e.g. If this device is an Echo Show
         if supported_interfaces.alexa_presentation_apl is not None:
-            logging.info(‘This device supports APL’)
+            logging.info('This device supports APL')
             #
             # Flag you can toggle based on where your APL is
             # This isnt production code, its just for demonstration purposes
             the_api_document_is_only_in_the_developer_console = True
             #
-            # add “Alexa.Presentation.APL.RenderDocument” to the handler_input
+            # add "Alexa.Presentation.APL.RenderDocument" to the handler_input
             if the_api_document_is_only_in_the_developer_console:
                 # if your APL is only in the console, load it from the console
-                document_name = “ImageAPLDocument” # The name of the APL we saved
-                token = document_name + “Token”
+                document_name = "ImageAPLDocument" # The name of the APL we saved
+                token = document_name + "Token"
                 # using an image api: https://picsum.photos/300/200
                 # for more info see: https://picsum.photos/
                 handler_input.response_builder.add_directive(
                     RenderDocumentDirective(
                         token=token,
                         document={
-                            “src”:’doc://alexa/apl/documents/’ + document_name,
-                            “type”: “Link”
+                            "src":'doc://alexa/apl/documents/' + document_name,
+                            "type": "Link"
                         },
                         datasources={
-                            “imageTemplateData”: {
-                                “type”: “object”,
-                                “objectId”: “imageSample”,
-                                “properties”: {
-                                    “backgroundImage”: {
-                                        “contentDescription”: None,
-                                        “smallSourceUrl”: None,
-                                        “largeSourceUrl”: None,
-                                        “sources”: [
+                            "imageTemplateData": {
+                                "type": "object",
+                                "objectId": "imageSample",
+                                "properties": {
+                                    "backgroundImage": {
+                                        "contentDescription": None,
+                                        "smallSourceUrl": None,
+                                        "largeSourceUrl": None,
+                                        "sources": [
                                             {
-                                                “url”: “https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/gridlist/GridListBackground_Dark.png”,
-                                                “size”: “large”
+                                                "url": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/gridlist/GridListBackground_Dark.png",
+                                                "size": "large"
                                             }
                                         ]
                                     },
-                                    “image”: {
-                                        “contentDescription”: None,
-                                        “smallSourceUrl”: None,
-                                        “largeSourceUrl”: None,
-                                        “sources”: [
+                                    "image": {
+                                        "contentDescription": None,
+                                        "smallSourceUrl": None,
+                                        "largeSourceUrl": None,
+                                        "sources": [
                                             {
-                                                “url”: “https://picsum.photos/300/200”,
-                                                “size”: “large”
+                                                "url": "https://picsum.photos/300/200",
+                                                "size": "large"
                                             }
                                         ]
                                     },
-                                    “title”: “Plant of the day”,
-                                    “logoUrl”: “https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/logo/logo-modern-botanical-white.png”
+                                    "title": "Plant of the day",
+                                    "logoUrl": "https://d2o906d8ln7ui1.cloudfront.net/images/templates_v3/logo/logo-modern-botanical-white.png"
                                 }
                             }
                         }
@@ -484,10 +460,10 @@ I'll change my 'handler' function to look like this.
                     )
                 )
         else:
-            logging.info(‘This device does not support APL. \r\n Supported Interfaces: \r\n {supported_interfaces}’)
+            logging.info('This device does not support APL. \r\n Supported Interfaces: \r\n {supported_interfaces}')
         #
         #
-        speak_output = “Welcome, you can say Hello or Help. Which would you like to try?”
+        speak_output = "Welcome, you can say Hello or Help. Which would you like to try?"
         #
         return (
             handler_input.response_builder
@@ -495,8 +471,8 @@ I'll change my 'handler' function to look like this.
                 .ask(speak_output)
                 .response
     )
-```
-Its a little messy, but I’ll leave cleaning it up as an excersize for the reader. The important part is that I copied the JSON from the ImageAPLDocument’s datasources into the data source from the render document directive. From here, I left the background image and I left the logo. I did change the main image’s source to be the API I referenced earlier (https://picsum.photos/300/200). Now when the skill is invoked, it’ll show a new random image from the API. Check it out! <img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/EchoShowPictureWorking.PNG" alt="PNG"></p>
+</code></pre>
+<p>Its a little messy, but I’ll leave cleaning it up as an excersize for the reader. The important part is that I copied the JSON from the ImageAPLDocument’s datasources into the data source from the render document directive. From here, I left the background image and I left the logo. I did change the main image’s source to be the API I referenced earlier (https://picsum.photos/300/200). Now when the skill is invoked, it’ll show a new random image from the API. Check it out! <img src="https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/EchoShowPictureWorking.PNG" alt="PNG"></p>
 <p>To get it to deploy, dont forget to deploy and build the skill and deploy the serverless.yml as well. From there go to the Test tab in the developer console and invoke your skill!</p>
        </section>
        <footer class="post-footer">
