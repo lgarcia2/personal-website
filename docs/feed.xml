@@ -3,10 +3,10 @@
   <channel>
     <title>Luis Garcia</title>
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Thu, 03 Feb 2022 22:38:07 -0500</pubDate>
-    <lastBuildDate>Thu, 03 Feb 2022 22:38:07 -0500</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+      <pubDate>Mon, 28 Feb 2022 23:17:05 -0500</pubDate>
+    <lastBuildDate>Mon, 28 Feb 2022 23:17:05 -0500</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -481,8 +481,8 @@ I’ll change my ‘handler’ function to look like this.&lt;/p&gt;
 &lt;p&gt;To get it to deploy, dont forget to deploy and build the skill and deploy the serverless.yml as well. From there go to the Test tab in the developer console and invoke your skill!&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Jan 2022 13:00:00 -0500</pubDate>
-        <link>/blog/technical/EchoShowSkillWithServerless</link>
-        <guid isPermaLink="true">/blog/technical/EchoShowSkillWithServerless</guid>
+        <link>http://localhost:4000/blog/technical/EchoShowSkillWithServerless</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/EchoShowSkillWithServerless</guid>
         
         <category>Alexa</category>
         
@@ -821,8 +821,8 @@ DYNAMODB_TABLE = DYNAMODB_RESOURCE.Table(TABLE_NAME)
 &lt;p&gt;You can check-out all the code on my &lt;a href=&quot;https://github.com/lgarcia2/DemoAlexaSkillWithDatabase&quot;&gt;github page&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 09 Dec 2021 11:00:00 -0500</pubDate>
-        <link>/blog/technical/AlexaSkillWithDatabase</link>
-        <guid isPermaLink="true">/blog/technical/AlexaSkillWithDatabase</guid>
+        <link>http://localhost:4000/blog/technical/AlexaSkillWithDatabase</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/AlexaSkillWithDatabase</guid>
         
         <category>Alexa</category>
         
@@ -1003,8 +1003,8 @@ provider:
 &lt;p&gt;If you want to reference the code, check it out &lt;a href=&quot;https://github.com/lgarcia2/DemoAlexaSkillWithServerless&quot;&gt;on my github page&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 19 Apr 2021 12:00:00 -0400</pubDate>
-        <link>/blog/technical/AlexaSkillWithServerless</link>
-        <guid isPermaLink="true">/blog/technical/AlexaSkillWithServerless</guid>
+        <link>http://localhost:4000/blog/technical/AlexaSkillWithServerless</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/AlexaSkillWithServerless</guid>
         
         <category>Alexa</category>
         
@@ -1128,8 +1128,8 @@ I went forward with this idea, implemented an IAM role for S3 security, added th
 If this project were to be something more serious, hopefully I would have noticed the errors earlier. Another, better way this could have been handled would be to catch failures in the code execution and have some kind of notification sent out when failures occurred. For a simple project like this though, that much hardening didn’t seem worth it to me. I also didn’t expect to be supporting it for this long, but I am happy that I can still check it periodically to see how Wyoming is doing.&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Aug 2020 14:00:00 -0400</pubDate>
-        <link>/blog/technical/CoronavirusGraphs</link>
-        <guid isPermaLink="true">/blog/technical/CoronavirusGraphs</guid>
+        <link>http://localhost:4000/blog/technical/CoronavirusGraphs</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/CoronavirusGraphs</guid>
         
         <category>Coronavirus</category>
         
@@ -1263,8 +1263,8 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
 
 </description>
         <pubDate>Sun, 02 Aug 2020 17:00:00 -0400</pubDate>
-        <link>/blog/non-technical/Motorcycle</link>
-        <guid isPermaLink="true">/blog/non-technical/Motorcycle</guid>
+        <link>http://localhost:4000/blog/non-technical/Motorcycle</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/non-technical/Motorcycle</guid>
         
         <category>1983</category>
         
@@ -1356,8 +1356,8 @@ After the packages with the piston and gaskets arrived I got to work. First, I t
 
 </description>
         <pubDate>Sun, 08 Mar 2020 14:00:00 -0400</pubDate>
-        <link>/blog/technical/AWSImageHosting</link>
-        <guid isPermaLink="true">/blog/technical/AWSImageHosting</guid>
+        <link>http://localhost:4000/blog/technical/AWSImageHosting</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/AWSImageHosting</guid>
         
         <category>AWS</category>
         
@@ -1499,8 +1499,8 @@ Height Scale = (2400/953) * 480 * 0.25 = 302&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 20 Jan 2020 13:00:00 -0500</pubDate>
-        <link>/blog/technical/Watermark</link>
-        <guid isPermaLink="true">/blog/technical/Watermark</guid>
+        <link>http://localhost:4000/blog/technical/Watermark</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/Watermark</guid>
         
         <category>Photography</category>
         
@@ -1539,8 +1539,8 @@ Height Scale = (2400/953) * 480 * 0.25 = 302&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 26 Apr 2019 10:00:00 -0400</pubDate>
-        <link>/blog/non-technical/NewBlogWhoThis</link>
-        <guid isPermaLink="true">/blog/non-technical/NewBlogWhoThis</guid>
+        <link>http://localhost:4000/blog/non-technical/NewBlogWhoThis</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/non-technical/NewBlogWhoThis</guid>
         
         <category>Jekyll</category>
         
@@ -1568,8 +1568,8 @@ Height Scale = (2400/953) * 480 * 0.25 = 302&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 14 Apr 2019 20:00:00 -0400</pubDate>
-        <link>/blog/technical/Test-Technical</link>
-        <guid isPermaLink="true">/blog/technical/Test-Technical</guid>
+        <link>http://localhost:4000/blog/technical/Test-Technical</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical/Test-Technical</guid>
         
         <category>Jekyll</category>
         
@@ -1589,8 +1589,8 @@ Height Scale = (2400/953) * 480 * 0.25 = 302&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 14 Apr 2019 20:00:00 -0400</pubDate>
-        <link>/blog/non-technical/Test-Nontechnical</link>
-        <guid isPermaLink="true">/blog/non-technical/Test-Nontechnical</guid>
+        <link>http://localhost:4000/blog/non-technical/Test-Nontechnical</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/non-technical/Test-Nontechnical</guid>
         
         <category>Jekyll</category>
         

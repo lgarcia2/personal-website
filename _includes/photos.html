@@ -1,0 +1,83 @@
+{% if page.cover %}
+{% assign cover = page.cover %}
+{% elsif site.cover %}
+{% assign cover = site.cover %}
+{% endif %}
+
+<link rel="stylesheet" type="text/css" href="css/grid-gallery.min.css"/>
+
+<!--<div id="gg-screen">
+    <div class="gg-image"></div>
+    <div class="gg-close gg-bt">×</div>
+    <div class="gg-next gg-bt">→</div>
+    <div class="gg-prev gg-bt">←</div>
+</div>-->
+
+<div class="container">
+
+    <h1>Photos!</h1>
+
+    <!--<div class="photos gg-container" id="main"></div>-->
+    <div class="gg-container">
+        <!--<div id="gg-screen">
+            <div class="gg-image"></div>
+            <div class="gg-close gg-bt">×</div>
+            <div class="gg-next gg-bt">→</div>
+            <div class="gg-prev gg-bt">←</div>
+        </div>-->
+        <div class="photos gg-box" id="main">
+
+        </div>
+    </div>
+
+    <footer id="footer" class="panel"></footer>
+
+    
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    
+</div>
+
+
+<!--<div class="gg-container">
+    <div class="gg-box">
+      <img src="img/your-image-1.jpg">
+      <img src="img/your-image-2.jpg">
+      <img src="img/your-image-n.jpg">
+    </div>
+</div>-->
+
+<!--<link rel="stylesheet" type="text/css" href="css/grid-gallery.min.css"/>-->
+<!--<script type="text/javascript" src="/js/grid-gallery.min.js"></script>-->
+<script type="text/javascript" src="/js/grid-gallery-custom.js"></script>
+<script type="text/javascript" src="/js/grid-gallery-style.js"></script>
+
+
+
+<!--<link rel="stylesheet" href="http://localhost:4000/css/main.css">
+<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+<link rel="stylesheet" href="/css/photos.css" />-->
+<script src="/js/infinite_scroll_photos.js"></script>
+
+<!--
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.poptrox.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<!--<script src="/js/breakpoints.min.js"></script>-->
+<!--
+<script src="/js/util.js"></script>
+<!--<script src="/js/main.js"></script>-->
+
+<!--<script src="/js/poptroxController.js"></script>-->
+<!--
+<script src="/js/poptroxControllerLite.js"></script>
+<script src="/js/infinite_scroll_photos.js"></script>
+<!--<script src="/js/infinite_scroll_v2.js"></script>-->
+
+<!--<a id="randomColors" class="page-link">Change Palette</a>-->
+
+<a id="loaderButton" class="page-link">LoadMorePhotos</a>
