@@ -49,7 +49,7 @@
         
                 var keyNodes = xmlDoc.getElementsByTagName("Key");
                 console.log(`Keys found for uri: ${API_URL} \r\n${keyNodes}`)
-                if (keyNodes.length-readUrisFrom < numberOfPhotos) //TODO, this should be <
+                if (keyNodes.length-readUrisFrom < numberOfPhotos)
                 {
                     console.log(`Only found ${keyNodes.length-readUrisFrom} photos in last request, but ${numberOfPhotos} were requested`);
                     areThereMorePhotos = false;
@@ -62,7 +62,6 @@
                 for(var i = readUrisFrom; i < keyNodes.length; i++)
                 {
                     s3Key = keyNodes[i].childNodes[0].nodeValue;
-                    //console.log(`Key found: ${s3Key}`)
                     objectKeys.push(s3Key);
                 }
                 return objectKeys;
@@ -100,15 +99,9 @@
         loaderElement.classList.add('show');
     };
 
-    //TODO
     const hasMorePhotos = () => {
         return areThereMorePhotos;
     };
-
-    // lastPhotoUri = null;
-    // const limit = 2;
-    // const baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
-    // total = 0;
 
     loadPhotos = (lastPhotoKey, limit) => {
         // show the loader
@@ -168,8 +161,6 @@
     areThereMorePhotos = true;
 
     lastPhotoUri = loadPhotos(lastPhotoUri, limit);
-    //console.log("First lastPhotoUri:");
-    //console.log(lastPhotoUri);
 
     //Re-load gallery, so photos can be arranged correctly and examined
     //based on https://github.com/jestov/grid-gallery
