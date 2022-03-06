@@ -4,7 +4,7 @@
     {
         "title": "Create an Echo Show Skill with VS Code and the Serverless Framework",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/EchoShowSkillWithServerless",
+        "url": "/blog/technical/EchoShowSkillWithServerless",
         "tags": ["Alexa","Echo","Show","Skill","AWS","Amazon","Serverless","Framework","Visual","Studio","Code"],
         "date": "2022-01-03 13:00:00 -0500",
         "language": "en"
@@ -15,7 +15,7 @@
     {
         "title": "Create an Alexa Skill with a Dynamo Database",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/AlexaSkillWithDatabase",
+        "url": "/blog/technical/AlexaSkillWithDatabase",
         "tags": ["Alexa","Echo","Skill","AWS","Amazon","Serverless","Framework","Visual","Studio","Code"],
         "date": "2021-12-09 11:00:00 -0500",
         "language": "en"
@@ -26,7 +26,7 @@
     {
         "title": "Create an Alexa Skill with VS Code and the Serverless Framework",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/AlexaSkillWithServerless",
+        "url": "/blog/technical/AlexaSkillWithServerless",
         "tags": ["Alexa","Echo","Skill","AWS","Amazon","Serverless","Framework","Visual","Studio","Code"],
         "date": "2021-04-19 12:00:00 -0400",
         "language": "en"
@@ -37,7 +37,7 @@
     {
         "title": "Wyoming Coronavirus Data by County",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/CoronavirusGraphs",
+        "url": "/blog/technical/CoronavirusGraphs",
         "tags": ["Coronavirus","COVID","AWS","matplotlib"],
         "date": "2020-08-26 14:00:00 -0400",
         "language": "en"
@@ -48,7 +48,7 @@
     {
         "title": "Motorcycle Rebuild",
         "category": "Non-Technical",
-        "url": "http://localhost:4000/blog/non-technical/Motorcycle",
+        "url": "/blog/non-technical/Motorcycle",
         "tags": ["1983","Honda","Shadow","500","Motorcycle"],
         "date": "2020-08-02 17:00:00 -0400",
         "language": "en"
@@ -59,7 +59,7 @@
     {
         "title": "Image Hosting with AWS",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/AWSImageHosting",
+        "url": "/blog/technical/AWSImageHosting",
         "tags": ["AWS","Image","Hosting","Github","Pages","Jekyll"],
         "date": "2020-03-08 14:00:00 -0400",
         "language": "en"
@@ -70,7 +70,7 @@
     {
         "title": "How to Watermark All Your Photos",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/Watermark",
+        "url": "/blog/technical/Watermark",
         "tags": ["Photography","FFmpeg"],
         "date": "2020-01-20 13:00:00 -0500",
         "language": "en"
@@ -81,7 +81,7 @@
     {
         "title": "New Blog, Who's This",
         "category": "Non-Technical",
-        "url": "http://localhost:4000/blog/non-technical/NewBlogWhoThis",
+        "url": "/blog/non-technical/NewBlogWhoThis",
         "tags": ["Jekyll","Github","Hexo","Integration","Deployment","Blog"],
         "date": "2019-04-26 10:00:00 -0400",
         "language": "en"
@@ -92,7 +92,7 @@
     {
         "title": "Test Technical Blog",
         "category": "Technical",
-        "url": "http://localhost:4000/blog/technical/Test-Technical",
+        "url": "/blog/technical/Test-Technical",
         "tags": ["Jekyll","GitHub"],
         "date": "2019-04-14 20:00:00 -0400",
         "language": "en"
@@ -103,7 +103,7 @@
     {
         "title": "Test Non-Technical Blog",
         "category": "Non-Technical",
-        "url": "http://localhost:4000/blog/non-technical/Test-Nontechnical",
+        "url": "/blog/non-technical/Test-Nontechnical",
         "tags": ["Jekyll","GitHub"],
         "date": "2019-04-14 20:00:00 -0400",
         "language": "en"

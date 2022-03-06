@@ -186,6 +186,8 @@
 
         //var photos = $('#main');
         //photos.poptrox();
+
+        loadGridGallery();
     }
 
     // poptroxItV2 = () => {
@@ -387,6 +389,9 @@
     //console.log("poptrox'd");
 
     //poptroxItV2();
+
+    //based on https://github.com/jestov/grid-gallery
+    loadGridGallery();
 
 })();
 
