@@ -101,14 +101,6 @@ comments:       true
 ---
 ```
 
-If you like to write some formula you can enable [MathJax](https://www.mathjax.org/). Go to the [theme feature post]({{ "/" | absolute_url}}blog/features/Features) to see it in action. You can find the [preprocessing options](http://docs.mathjax.org/en/latest/options/tex2jax.html#configure-tex2jax) in `_includes/mathjax_support.html`.
-
-```bash
----        
-math:           true 
----
-```
-
 
 If you are writing a scholar article and like to add [bibliographic metadata](https://scholar.google.com/intl/en/scholar/inclusion.html#indexing) you can use the following YAML. This makes your article searchable at [Google Scholar](https://scholar.google.com/).
 

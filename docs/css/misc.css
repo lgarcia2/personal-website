@@ -1,0 +1,22 @@
+
+/* Gallery Display */
+.gg-container {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Inner image settings */
+    --gap-length: 4px;
+    --row-height: 250px;
+    --column-width: 300px;
+        /* (Original settings)
+        --gap-length: 2px;
+        --row-height: 200px;
+        --column-width: 220px;
+        */
+}
+
+.loadMorePhotosButton:hover {
+    cursor:pointer;
+    cursor:hand;
+}

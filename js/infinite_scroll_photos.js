@@ -49,10 +49,20 @@
         
                 var keyNodes = xmlDoc.getElementsByTagName("Key");
                 console.log(`Keys found for uri: ${API_URL} \r\n${keyNodes}`)
+                if (keyNodes.length-readUrisFrom < numberOfPhotos) //TODO, this should be <
+                {
+                    console.log(`Only found ${keyNodes.length-readUrisFrom} photos in last request, but ${numberOfPhotos} were requested`);
+                    areThereMorePhotos = false;
+                }
+                else
+                {
+                    areThereMorePhotos = true;
+                }
+
                 for(var i = readUrisFrom; i < keyNodes.length; i++)
                 {
                     s3Key = keyNodes[i].childNodes[0].nodeValue;
-                    console.log(`Key found: ${s3Key}`)
+                    //console.log(`Key found: ${s3Key}`)
                     objectKeys.push(s3Key);
                 }
                 return objectKeys;
@@ -91,17 +101,14 @@
     };
 
     //TODO
-    const hasMorePhotos = (page, limit, total) => {
-        return true;
-        //TODO
-        const startIndex = (page - 1) * limit + 1;
-        return total === 0 || startIndex < total;
+    const hasMorePhotos = () => {
+        return areThereMorePhotos;
     };
 
-    lastPhotoUri = null;
-    const limit = 2;
-    const baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
-    total = 0;
+    // lastPhotoUri = null;
+    // const limit = 2;
+    // const baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
+    // total = 0;
 
     loadPhotos = (lastPhotoKey, limit) => {
         // show the loader
@@ -109,7 +116,7 @@
         nextLastPhotoKey = lastPhotoKey
         try {
             // if having more quotes to fetch
-            if (hasMorePhotos(lastPhotoUri, limit, total)) {
+            if (hasMorePhotos()) {
                 // call the API to get quotes
                 photoS3Keys = getPhotoS3Keys(lastPhotoKey, limit);
                 if(photoS3Keys.length > 0)
@@ -117,11 +124,8 @@
                     nextLastPhotoKey = photoS3Keys[photoS3Keys.length-1]
             
                     // show quotes
-                    console.log("Showing Photos");
+                    //console.log("Showing Photos");
                     showPhotos(photoS3Keys);
-                    
-                    // update the total
-                    // total = response.total;
                 }
             }
         } catch (error) {
@@ -141,10 +145,10 @@
         } = document.documentElement;
 
         if (scrollTop + clientHeight >= scrollHeight - 5 &&
-            hasMorePhotos(lastPhotoUri, limit, total)) {
+            hasMorePhotos()) {
             lastPhotoUri = loadPhotos(lastPhotoUri, limit);
-            console.log("Last Photo Uri")
-            console.log(lastPhotoUri)
+            //console.log("Last Photo Uri")
+            //console.log(lastPhotoUri)
         }
 
         //Re-load gallery, so photos can be arranged correctly and examined
@@ -158,9 +162,14 @@
     $(document).on("click", "#loaderButton", loadMorePhotos);
 
     // initialize
+    lastPhotoUri = null;
+    const limit = 8;
+    const baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
+    areThereMorePhotos = true;
+
     lastPhotoUri = loadPhotos(lastPhotoUri, limit);
-    console.log("First lastPhotoUri:");
-    console.log(lastPhotoUri);
+    //console.log("First lastPhotoUri:");
+    //console.log(lastPhotoUri);
 
     //Re-load gallery, so photos can be arranged correctly and examined
     //based on https://github.com/jestov/grid-gallery

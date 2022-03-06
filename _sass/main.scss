@@ -1,6 +1,6 @@
 .main-header {
     margin-bottom: 50px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -42,7 +42,7 @@
     .page-description {
         width: 90%;
         max-width: 500px;
-        margin: auto auto 20px auto;
+        margin: auto auto 5px auto;
     }
 
     @media (min-width: 500px){
@@ -144,7 +144,7 @@
             font-family: Merriweather;
             font-size: 70px;
             word-spacing: 15px;
-            line-height: 1.2;
+            line-height: 1.0;
             text-decoration: none;
             text-shadow: 1px 1px 5px rgba($color-black, 0.3);
         }
