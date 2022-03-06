@@ -3,8 +3,8 @@
 // Inspiration from https://www.javascripttutorial.net/javascript-dom/javascript-infinite-scroll/#:~:text=Click%20here%20to%20see%20the%20final%20web%20application,css%20folder%20and%20app.js%20in%20the%20js%20folder.
 (function () {
 
-    const photosEl = document.querySelector('.photos');
-    const loaderEl = document.querySelector('.loader');
+    const photosElement = document.querySelector('.photos');
+    const loaderElement = document.querySelector('.loader');
 
 
     const getPhotoS3Keys = (lastPhotoUri, numberOfPhotos) => {
@@ -49,7 +49,6 @@
         
                 var keyNodes = xmlDoc.getElementsByTagName("Key");
                 console.log(`Keys found for uri: ${API_URL} \r\n${keyNodes}`)
-                //for(var i = 1; i < keyNodes.length; i++) //Start at 1 because the 0th index is the 'directory'
                 for(var i = readUrisFrom; i < keyNodes.length; i++)
                 {
                     s3Key = keyNodes[i].childNodes[0].nodeValue;
@@ -74,53 +73,21 @@
         console.log("showPhotos Started")
         photoS3Keys.forEach(photoS3Key => {
             photoUri = `${baseUrl}${photoS3Key}`
-            //console.log("Creating article");
-            //const photoArticle = document.createElement('article');
-            //photoArticle.classList.add("thumb");
-
-            //photoEl.innerHTML = `
-            //    <article class="thumb">
-            //        <a href="${photoUri}" class="image">
-            //            <img src="${photoUri}" alt="Nisl Adipiscing" />
-            //        </a>
-            //        <!--<h2>Photo Title</h2>-->
-            //        <!--<p>Photo Subtitle</p>-->
-            //    </article>
-            //`
-
-            // photoArticle.innerHTML = `
-            //         <a href='${photoUri}' class='image'>
-            //             <img src='${photoUri}' alt='Nisl Adipiscing' />
-            //         </a>
-            //         <!--<h2>Photo Title</h2>-->
-            //         <!--<p>Photo Subtitle</p>-->
-            // `
 
             const img = document.createElement('img');
             img.classList.add("thumb");
             img.src = photoUri;
-            photosEl.appendChild(img);
 
-            //img.innerHTML = `
-            //        <a href='${photoUri}' class='image'>
-            //            <img src='${photoUri}' alt='Nisl Adipiscing' />
-            //        </a>
-            //        <!--<h2>Photo Title</h2>-->
-            //        <!--<p>Photo Subtitle</p>-->
-            //`
-
-            //console.log("appending child");
-            ////document.getElementById("main").appendChild(photoArticle);
-            //photosEl.appendChild(photoArticle);
+            photosElement.appendChild(img);
         });
     };
 
     const hideLoader = () => {
-        loaderEl.classList.remove('show');
+        loaderElement.classList.remove('show');
     };
 
     const showLoader = () => {
-        loaderEl.classList.add('show');
+        loaderElement.classList.add('show');
     };
 
     //TODO
@@ -180,268 +147,23 @@
             console.log(lastPhotoUri)
         }
 
-        //createMainPoptrox();
-        //poptroxIt();
-        //poptroxItV2();
-
-        //var photos = $('#main');
-        //photos.poptrox();
-
+        //Re-load gallery, so photos can be arranged correctly and examined
         loadGridGallery();
     }
-
-    // poptroxItV2 = () => {
-
-    //     var $body = $('body');
-        
-    //     // Main.
-	// 	var $main = $('#main');
-
-	// 	// Thumbs.
-	// 		$main.children('.thumb').each(function() {
-
-	// 			var	$this = $(this),
-	// 				$image = $this.find('.image'), $image_img = $image.children('img'),
-	// 				x;
-
-	// 			// No image? Bail.
-	// 				if ($image.length == 0)
-	// 					return;
-
-	// 			// Image.
-	// 			// This sets the background of the "image" <span> to the image pointed to by its child
-	// 			// <img> (which is then hidden). Gives us way more flexibility.
-
-	// 				// Set background.
-	// 					$image.css('background-image', 'url(' + $image_img.attr('src') + ')');
-
-	// 				// Set background position.
-	// 					if (x = $image_img.data('position'))
-	// 						$image.css('background-position', x);
-
-	// 				// Hide original img.
-	// 					$image_img.hide();
-
-	// 		});
-
-	// 	// Poptrox.
-	// 		$main.poptrox({
-	// 			baseZIndex: 20000,
-	// 			caption: function($a) {
-
-	// 				var s = '';
-
-	// 				$a.nextAll().each(function() {
-	// 					s += this.outerHTML;
-	// 				});
-
-	// 				return s;
-
-	// 			},
-	// 			fadeSpeed: 300,
-	// 			onPopupClose: function() { $body.removeClass('modal-active'); },
-	// 			onPopupOpen: function() { $body.addClass('modal-active'); },
-	// 			overlayOpacity: 0,
-	// 			popupCloserText: '',
-	// 			popupHeight: 150,
-	// 			popupLoaderText: '',
-	// 			popupSpeed: 300,
-	// 			popupWidth: 150,
-	// 			selector: '.thumb > a.image',
-	// 			usePopupCaption: true,
-	// 			usePopupCloser: true,
-	// 			usePopupDefaultStyling: false,
-	// 			usePopupForceClose: true,
-	// 			usePopupLoader: true,
-	// 			usePopupNav: true,
-	// 			windowMargin: 50
-	// 		});
-
-	// 		// Hack: Set margins to 0 when 'xsmall' activates.
-	// 			// breakpoints.on('<=xsmall', function() {
-	// 			// 	$main[0]._poptrox.windowMargin = 0;
-	// 			// });
-
-	// 			// breakpoints.on('>xsmall', function() {
-	// 			// 	$main[0]._poptrox.windowMargin = 50;
-	// 			// });
-    // }
-
-
-
-
-
-
-
-    // poptroxIt = () => {
-
-    //     var	$window = $(window);
-    //     var $body = $('body');
-    //     var $wrapper = $('#wrapper');
-        
-    //     // Main.
-	// 	var $main = $('#main');
-
-	// 	// Thumbs.
-	// 		$main.children('.thumb').each(function() {
-
-	// 			var	$this = $(this),
-	// 				$image = $this.find('.image'), $image_img = $image.children('img'),
-	// 				x;
-
-	// 			// No image? Bail.
-	// 				if ($image.length == 0)
-	// 					return;
-
-	// 			// Image.
-	// 			// This sets the background of the "image" <span> to the image pointed to by its child
-	// 			// <img> (which is then hidden). Gives us way more flexibility.
-
-	// 				// Set background.
-	// 					$image.css('background-image', 'url(' + $image_img.attr('src') + ')');
-
-	// 				// Set background position.
-	// 					if (x = $image_img.data('position'))
-	// 						$image.css('background-position', x);
-
-	// 				// Hide original img.
-	// 					$image_img.hide();
-
-	// 		});
-
-	// 	// Poptrox.
-	// 		$main.poptrox({
-	// 			baseZIndex: 20000,
-	// 			caption: function($a) {
-
-	// 				var s = '';
-
-	// 				$a.nextAll().each(function() {
-	// 					s += this.outerHTML;
-	// 				});
-
-	// 				return s;
-
-	// 			},
-	// 			fadeSpeed: 300,
-	// 			onPopupClose: function() { $body.removeClass('modal-active'); },
-	// 			onPopupOpen: function() { $body.addClass('modal-active'); },
-	// 			overlayOpacity: 0,
-	// 			popupCloserText: '',
-	// 			popupHeight: 150,
-	// 			popupLoaderText: '',
-	// 			popupSpeed: 300,
-	// 			popupWidth: 150,
-	// 			selector: '.thumb > a.image',
-	// 			usePopupCaption: true,
-	// 			usePopupCloser: true,
-	// 			usePopupDefaultStyling: false,
-	// 			usePopupForceClose: true,
-	// 			usePopupLoader: true,
-	// 			usePopupNav: true,
-	// 			windowMargin: 50
-	// 		});
-
-	// 		// Hack: Set margins to 0 when 'xsmall' activates.
-	// 			// breakpoints.on('<=xsmall', function() {
-	// 			// 	$main[0]._poptrox.windowMargin = 0;
-	// 			// });
-
-	// 			// breakpoints.on('>xsmall', function() {
-	// 			// 	$main[0]._poptrox.windowMargin = 50;
-	// 			// });
-    // }
 
     window.addEventListener('scroll', () => loadMorePhotos(), {
         passive: true
     });
 
     $(document).on("click", "#loaderButton", loadMorePhotos);
-    //$(document).on("click", "#loaderButton", randomColors);
-
-    //window.addEventListener('scroll', () => {
-    //    const {
-    //        scrollTop,
-    //        scrollHeight,
-    //        clientHeight
-    //    } = document.documentElement;
-    //
-    //    if (scrollTop + clientHeight >= scrollHeight - 5 &&
-    //        hasMorePhotos(lastPhotoUri, limit, total)) {
-    //        lastPhotoUri = loadPhotos(lastPhotoUri, limit);
-    //    }
-    //}, {
-    //    passive: true
-    //});
-
 
     // initialize
     lastPhotoUri = loadPhotos(lastPhotoUri, limit);
     console.log("First lastPhotoUri:");
     console.log(lastPhotoUri);
 
-    //poptroxIt();
-    //createMainPoptrox();
-
-    //console.log("About to poptrox");
-    //var photos = $('#main');
-    //photos.poptrox();
-    //console.log("poptrox'd");
-
-    //poptroxItV2();
-
+    //Re-load gallery, so photos can be arranged correctly and examined
     //based on https://github.com/jestov/grid-gallery
     loadGridGallery();
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-    //$(document).ready(function () {
-    //
-    //    var baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/"
-    //
-    //    var xmlHttp = new XMLHttpRequest();
-    //    xmlHttp.onreadystatechange = function() { 
-    //        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-    //        {
-    //            var response = xmlHttp.responseText;
-    //            if (window.DOMParser)
-    //            {
-    //                parser = new DOMParser();
-    //                xmlDoc = parser.parseFromString(response, "text/xml");
-    //            }
-    //            else // Internet Explorer
-    //            {
-    //                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-    //                xmlDoc.async = false;
-    //                xmlDoc.loadXML(txt);
-    //            }
-    //
-    //            var keyNodes = xmlDoc.getElementsByTagName("Key");
-    //            var objectNames = [];
-    //            for(var i = 1; i < keyNodes.length; i++) //Start at 1 because the 0th index is the 'directory'
-    //            {
-    //                objectNames.push(keyNodes[i].childNodes[0].nodeValue);
-    //            }
-    //            
-    //            index = Math.floor((Math.random() * objectNames.length));
-    //            imageUrl = "url('" + baseUrl + objectNames[index] + "')";
-    //            console.log(imageUrl);
-    //            $(".image-rotate").css("background-image", imageUrl);
-    //        }
-    //    }
-    //
-    //    //https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html
-    //    var listBucketUrl = baseUrl + "?prefix=background-images&max-Keys=12";
-    //    xmlHttp.open("GET", listBucketUrl, true); // true for asynchronous 
-    //    xmlHttp.send(null);
-    //});
