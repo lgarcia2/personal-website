@@ -2,6 +2,7 @@
 .jekyll-metadata
 .jekyll-cache
 /.jekyll-cache
+/.saas-cache
 .vscode
 /.vs
 Gemfile.lock
