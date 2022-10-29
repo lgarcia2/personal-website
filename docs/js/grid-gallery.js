@@ -3,8 +3,8 @@ const container = document.querySelector('.gg-container');
 const images = document.querySelectorAll(".gg-box > img");
 const l = images.length;
 
-for(var i = 0; i < l; i++) {
-  images[i].addEventListener("click", function(i) {
+for (var i = 0; i < l; i++) {
+  images[i].addEventListener("click", function (i) {
     var currentImg = this;
     const parentItem = currentImg.parentElement, screenItem = document.createElement('div');
     screenItem.id = "gg-screen";
@@ -13,7 +13,8 @@ for(var i = 0; i < l; i++) {
     var route = currentImg.src;
     root.style.overflow = 'hidden';
     screenItem.innerHTML = '<div class="gg-image"></div><div class="gg-close gg-btn">&times</div><div class="gg-next gg-btn">&rarr;</div><div class="gg-prev gg-btn">&larr;</div>';
-    const first = images[0].src, last = images[l-1].src;
+    const first = images[0].src,
+    const last = images[l - 1].src;
     const imgItem = document.querySelector(".gg-image"), prevBtn = document.querySelector(".gg-prev"), nextBtn = document.querySelector(".gg-next"), close = document.querySelector(".gg-close");
     imgItem.innerHTML = '<img src="' + route + '">';
 
@@ -38,14 +39,14 @@ for(var i = 0; i < l; i++) {
       nextBtn.hidden = true;
     }
 
-    screenItem.addEventListener("click", function(e) {
+    screenItem.addEventListener("click", function (e) {
       if (e.target == this || e.target == close) hide();
     });
 
-    root.addEventListener("keydown", function(e) {
+    root.addEventListener("keydown", function (e) {
       if (e.keyCode == 37 || e.keyCode == 38) prev();
       if (e.keyCode == 39 || e.keyCode == 40) next();
-      if (e.keyCode == 27 ) hide();
+      if (e.keyCode == 27) hide();
     });
 
     prevBtn.addEventListener("click", prev);
@@ -76,7 +77,7 @@ for(var i = 0; i < l; i++) {
   });
 }
 
-function gridGallery (options) {
+function gridGallery(options) {
   if (options.selector) selector = document.querySelector(options.selector);
   if (options.darkMode) selector.setAttribute("data-theme", "dark");
   if (options.layout == "horizontal" || options.layout == "square") selector.setAttribute("data-layout", options.layout);

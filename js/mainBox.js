@@ -1,12 +1,12 @@
 ﻿
 //To use, add the following html tag to your page: <div id="boxSection" >
 
-function createMainBox (id, divClass, text) {
+function createMainBox(id, divClass, text) {
     var elementText = document.createTextNode(text);
     var h2 = document.createElement("h2");
     h2.id = id + "Text";
     var boxTextClass = id + "Text " + "boxText";
-    h2.setAttribute("class",boxTextClass);
+    h2.setAttribute("class", boxTextClass);
     h2.appendChild(elementText);
     var div = document.createElement("div");
     div.id = id;
@@ -15,10 +15,10 @@ function createMainBox (id, divClass, text) {
     return div;
 }
 
-function createNavBox (id, divClass) {
+function createNavBox(id, divClass) {
     var h2 = document.createElement("h2");
     h2.id = id + "Text";
-    h2.setAttribute("class","boxText");
+    h2.setAttribute("class", "boxText");
     var div = document.createElement("div");
     div.id = id;
     div.setAttribute("class", divClass);
@@ -28,8 +28,8 @@ function createNavBox (id, divClass) {
 
 function decimalToColor(decimalNumber) {
     var hexString = decimalNumber.toString(16);
-    if(hexString.length < 6) {
-        for(i = 0; i <= (6-hexString.length); i++){
+    if (hexString.length < 6) {
+        for (i = 0; i <= (6 - hexString.length); i++) {
             hexString = "0" + hexString;
         }
     }
@@ -56,7 +56,7 @@ $(document).ready(function () {
     document.getElementById("boxSection").appendChild(createMainBox("box1", "mainBox box1", "Technical Blog"));
     document.getElementById("boxSection").appendChild(createMainBox("box2", "mainBox box2", "Non-Technical Blog"));
     document.getElementById("boxSection").appendChild(createMainBox("box3", "mainBox box3", "Github"));
-    document.getElementById("boxSection").appendChild(createMainBox("box4", "mainBox box4", "Wedding Info"));
+    document.getElementById("boxSection").appendChild(createMainBox("box4", "mainBox box4", "Photos"));
 
     function changeColor(event) {
         console.log("changeColor 1");
@@ -81,8 +81,7 @@ $(document).ready(function () {
         $(".box4").css("background-color", box4Color);
 
         //the standard opacity is in the css
-        if($(document).width() < 767)
-        {
+        if ($(document).width() < 767) {
             $(".box1Text").css("opacity", .65);
             $(".box2Text").css("opacity", .65);
             $(".box3Text").css("opacity", .65);
@@ -100,16 +99,16 @@ $(document).ready(function () {
 
         color1 = Math.floor((Math.random() * 16777215));
         color4 = Math.floor((Math.random() * 16777215));
-    
-        if(color1 > color4){
+
+        if (color1 > color4) {
             tmpcolor = color1
             color1 = color4
             color4 = tmpcolor
         }
-    
+
         color2 = Math.floor(((color4 - color1) / 3) + (color4 - color1) / 3);
-        color3 = Math.floor(((color4 - color1) / 3) + (2*(color4 - color1) / 3));
-    
+        color3 = Math.floor(((color4 - color1) / 3) + (2 * (color4 - color1) / 3));
+
         //convert to hex
         box1Color = decimalToColor(color1);
         box2Color = decimalToColor(color2);
@@ -162,8 +161,8 @@ $(document).ready(function () {
     $(document).on("mouseout", ".box4", changeBack);
 
     //navigation
-    $(document).on("click", ".box1", {ref: window.location.origin + "/technical"}, navigate);
-    $(document).on("click", ".box2", {ref: window.location.origin + "/nontechnical"}, navigate);
-    $(document).on("click", ".box3", {ref: "https://github.com/lgarcia2"}, navigate);
-    $(document).on("click", ".box4", {ref: "http://theknot.com/luisheartstaylor"}, navigate);
+    $(document).on("click", ".box1", { ref: window.location.origin + "/technical" }, navigate);
+    $(document).on("click", ".box2", { ref: window.location.origin + "/nontechnical" }, navigate);
+    $(document).on("click", ".box3", { ref: "https://github.com/lgarcia2" }, navigate);
+    $(document).on("click", ".box4", { ref: "/photos" }, navigate);
 });

@@ -5,9 +5,9 @@
     <description>This is the personal website of Luis Garcia. Here you can read both technical and non-technical blogs, look at some projects, and get a little more insight about what makes him tick.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-      <pubDate>Sun, 06 Mar 2022 17:23:51 -0500</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 17:23:51 -0500</lastBuildDate>
-    <generator>Jekyll v4.2.1</generator>
+      <pubDate>Sat, 29 Oct 2022 12:20:44 -0400</pubDate>
+    <lastBuildDate>Sat, 29 Oct 2022 12:20:44 -0400</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Create an Echo Show Skill with VS Code and the Serverless Framework</title>
@@ -182,7 +182,7 @@ Developer Console &amp;gt; Build &amp;gt; Interfaces &amp;gt; Alexa Presentation
 &lt;pre&gt;&lt;code&gt;{
     &quot;helloWorldDataSource&quot;: {
         &quot;title&quot;: &quot;Hello World!&quot;,
-        &quot;subtitle&quot;: &quot;I hope you&apos;re having fun!&quot;,
+        &quot;subtitle&quot;: &quot;I hope you're having fun!&quot;,
         &quot;color&quot;: &quot;@colorTeal800&quot;
     }
 }
@@ -259,7 +259,7 @@ Developer Console &amp;gt; Build &amp;gt; Interfaces &amp;gt; Alexa Presentation
 &lt;p&gt;Here’s my code for adding the APL to the response&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;supported_interfaces = ask_utils.request_util.get_supported_interfaces(handler_input)
 if supported_interfaces.alexa_presentation_apl is not None:
-    logging.info(&apos;This device supports APL&apos;)
+    logging.info('This device supports APL')
 
     document_name = &quot;HelloWorldDocument&quot; # The name of the APL we saved
     token = document_name + &quot;Token&quot;
@@ -267,7 +267,7 @@ if supported_interfaces.alexa_presentation_apl is not None:
         RenderDocumentDirective(
             token=token,
             document={
-                &quot;src&quot;:&apos;doc://alexa/apl/documents/&apos; + document_name,
+                &quot;src&quot;:'doc://alexa/apl/documents/' + document_name,
                 &quot;type&quot;: &quot;Link&quot;
             },
             datasources={
@@ -295,7 +295,7 @@ if supported_interfaces.alexa_presentation_apl is not None:
 &lt;/ol&gt;
 
 &lt;pre&gt;&lt;code&gt;service: DemoEchoShowSkill
-frameworkVersion: &apos;2&apos;
+frameworkVersion: '2'
 
 plugins:
   - serverless-python-requirements
@@ -365,7 +365,7 @@ functions:
 
 &lt;p&gt;&lt;img src=&quot;https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/technical/EchoShowSkillWithServerless/SyncUpstreamToConsole.PNG&quot; alt=&quot;PNG&quot; /&gt;&lt;/p&gt;
 
-&lt;!--## What If You Don&apos;t Wan&apos;t To Do That?
+&lt;!--## What If You Don't Wan't To Do That?
 
 There are still some other options for deploying an APL. And we can take a look at doing that. Before we get into that I do want to note that the last deployment method had other benefits too. In additon to the APL, we also deployed other items needed for our skill like the interaction model and items in the skill manifest (not the lambdas and other resources though, those were deployed by serverless)
 
@@ -398,7 +398,7 @@ I’ll change my ‘handler’ function to look like this.&lt;/p&gt;
         # If this device supports APL 
         # e.g. If this device is an Echo Show
         if supported_interfaces.alexa_presentation_apl is not None:
-            logging.info(&apos;This device supports APL&apos;)
+            logging.info('This device supports APL')
             #
             # Flag you can toggle based on where your APL is
             # This isnt production code, its just for demonstration purposes
@@ -415,7 +415,7 @@ I’ll change my ‘handler’ function to look like this.&lt;/p&gt;
                     RenderDocumentDirective(
                         token=token,
                         document={
-                            &quot;src&quot;:&apos;doc://alexa/apl/documents/&apos; + document_name,
+                            &quot;src&quot;:'doc://alexa/apl/documents/' + document_name,
                             &quot;type&quot;: &quot;Link&quot;
                         },
                         datasources={
@@ -464,7 +464,7 @@ I’ll change my ‘handler’ function to look like this.&lt;/p&gt;
                     )
                 )
         else:
-            logging.info(&apos;This device does not support APL. \r\n Supported Interfaces: \r\n {supported_interfaces}&apos;)
+            logging.info('This device does not support APL. \r\n Supported Interfaces: \r\n {supported_interfaces}')
         #
         #
         speak_output = &quot;Welcome, you can say Hello or Help. Which would you like to try?&quot;
@@ -603,7 +603,7 @@ numberOfHellos = myDatabase[userId]
       Properties:
         RoleName: ${opt:stage, self:provider.stage}-helloLambdaRole
         AssumeRolePolicyDocument:
-          Version: &apos;2012-10-17&apos;
+          Version: '2012-10-17'
           Statement:
             - Effect: Allow
               Principal:
@@ -613,7 +613,7 @@ numberOfHellos = myDatabase[userId]
         Policies:
           - PolicyName: ${opt:stage, self:provider.stage}-LambdaDynamoAndLogPolicy
             PolicyDocument:
-              Version: &apos;2012-10-17&apos;
+              Version: '2012-10-17'
               Statement:
                 - Effect: Allow
                   Action:
@@ -721,7 +721,7 @@ numberOfHellos = myDatabase[userId]
 
 &lt;p&gt;&lt;code&gt;create_hellos_message()&lt;/code&gt; is an easy one lets write it below in python&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;def create_hellos_message(number_of_hellos: int) -&amp;gt; str:
-    # NOTE: english is funny, we have to say &apos;time&apos; or &apos;times&apos; so it sounds correct depending on whether there is one or more number of hellos
+    # NOTE: english is funny, we have to say 'time' or 'times' so it sounds correct depending on whether there is one or more number of hellos
     if number_of_hellos == 1:
         return f&quot;Hello World, I have said hello {number_of_hellos} time&quot;
     else:
@@ -739,29 +739,29 @@ from boto3.dynamodb.conditions import Key, Attr
 import os
 import json
 
-# Globals that should stay &apos;warm&apos; from lambda to lambda
-TABLE_NAME = os.environ.get(&apos;HELLO_WORLD_DATA_TABLE&apos;)
-REGION = os.environ.get(&apos;REGION&apos;)
-DYNAMODB_RESOURCE = boto3.resource(&apos;dynamodb&apos;) 
+# Globals that should stay 'warm' from lambda to lambda
+TABLE_NAME = os.environ.get('HELLO_WORLD_DATA_TABLE')
+REGION = os.environ.get('REGION')
+DYNAMODB_RESOURCE = boto3.resource('dynamodb') 
 DYNAMODB_TABLE = DYNAMODB_RESOURCE.Table(TABLE_NAME)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Normally, global variables should be something to frown on. However in this case, I want to keep these resource references ‘warm’. That is, if the lambda is invoked in rapid succession, less time will be spent initializing these resources since they’ve been previously initalized, or so I’ve been told. A cursory google neither proves or denies this though.&lt;/p&gt;
 
 &lt;p&gt;Of these variables, we’ll just use DYNAMO_TABLE to query our table for data. Let’s start on our get_number_of_hellos method&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;def get_number_of_hellos(self, userId: str) -&amp;gt; int:
-    user_value = f&apos;user#{userId}&apos;
+    user_value = f'user#{userId}'
     query_response = DYNAMODB_TABLE.query(
-        KeyConditionExpression=Key(&apos;pk&apos;).eq(user_value)
+        KeyConditionExpression=Key('pk').eq(user_value)
     )
 
-    query_response_items = query_response[&apos;Items&apos;]
+    query_response_items = query_response['Items']
     if len(query_response_items) &amp;lt; 1:
         return 0
     else:
-        # there &apos;should&apos; only be one item returned, if there is &amp;gt; 1 then we&apos;ll just pick the first one
-        data_str = query_response_items[0][&apos;data&apos;]
+        # there 'should' only be one item returned, if there is &amp;gt; 1 then we'll just pick the first one
+        data_str = query_response_items[0]['data']
         data_obj = json.loads(data_str)
-        return data_obj[&apos;numberOfHellos&apos;]
+        return data_obj['numberOfHellos']
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;One item that tripped me up was the difference between the Dynamo resource and the Dynamo client. The query syntax is different between the two.&lt;/p&gt;
 
@@ -771,12 +771,12 @@ DYNAMODB_TABLE = DYNAMODB_RESOURCE.Table(TABLE_NAME)
 
 &lt;p&gt;Alright, last method. It should be pretty easy to copy and past our old code with a few changes.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;def set_number_of_hellos(self, userId: str, number_of_hellos: int) -&amp;gt; None:
-    user_value = f&apos;user#{userId}&apos;
+    user_value = f'user#{userId}'
     data_obj = {}
-    data_obj[&apos;numberOfHellos&apos;] = number_of_hellos
+    data_obj['numberOfHellos'] = number_of_hellos
     db_item = {
-        &apos;pk&apos;: user_value,
-        &apos;data&apos;: json.dumps(data_obj)
+        'pk': user_value,
+        'data': json.dumps(data_obj)
     }
 
     DYNAMODB_TABLE.put_item(
@@ -932,7 +932,7 @@ DYNAMODB_TABLE = DYNAMODB_RESOURCE.Table(TABLE_NAME)
 
 &lt;p&gt;The top of my file looks like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;service: DemoAlexaSkill
-frameworkVersion: &apos;2&apos;
+frameworkVersion: '2'
 
 provider:
   name: aws
@@ -1512,7 +1512,7 @@ Height Scale = (2400/953) * 480 * 0.25 = 302&lt;/p&gt;
       </item>
     
       <item>
-        <title>New Blog, Who&apos;s This</title>
+        <title>New Blog, Who's This</title>
         <description>&lt;h2 id=&quot;ive-made-a-new-blog-again&quot;&gt;I’ve made a new blog! Again!&lt;/h2&gt;
 
 &lt;p&gt;Every blog of mine starts out with a post like this. So why not continue the pattern? Yes, it is very redundant to keep making different iterations of blogs every couple years. However, I’m hoping this time its different (said everyone). All of my previous blog iterations have generally been custom solutions. That is, in order to hone and practice my developer skills, I’ve implemented various web frameworks in order to come up with a blog that works for me. The good news is that I definately gained knowledge and experience from the process. The bad news is that since they were custom solutions, it wasn’t always the easiest to contribute to my own blog. I’m hoping that by avoiding custom work and switching to an established solution, contributing and keeping up with the blog will be easier. Basically, I’m trying to make the barrier to entry easier, hoping that I’ll contribute more.&lt;/p&gt;

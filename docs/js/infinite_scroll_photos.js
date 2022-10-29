@@ -8,16 +8,14 @@
 
 
     const getPhotoS3Keys = (lastPhotoUri, numberOfPhotos) => {
-        
+
         //https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html
-        if(lastPhotoUri === null)
-        {
+        if (lastPhotoUri === null) {
             //NOTE: using number of Photos + 1 because the prefix (folder) is considered one of the keys
-            API_URL = `${baseUrl}?prefix=background-images/&max-keys=${numberOfPhotos+1}`;
+            API_URL = `${baseUrl}?prefix=background-images/&max-keys=${numberOfPhotos + 1}`;
             readUrisFrom = 1 //Start at 1 because the 0th item returned is the 'directory'
         }
-        else
-        {
+        else {
             //NOTE: using number of Photos + 1 because this is inclusive of the last marker
             API_URL = `${baseUrl}?prefix=background-images/&marker=${lastPhotoUri}&max-keys=${numberOfPhotos}`;
             readUrisFrom = 0 //Start at 0 since we dont need to include the directory
@@ -31,12 +29,10 @@
 
         try {
             xmlHttp.send(null);
-            if (xmlHttp.status == 200) 
-            {
+            if (xmlHttp.status == 200) {
                 var response = xmlHttp.responseText;
                 console.log("gotta parse dat xml")
-                if (window.DOMParser)
-                {
+                if (window.DOMParser) {
                     parser = new DOMParser();
                     xmlDoc = parser.parseFromString(response, "text/xml");
                 }
@@ -46,33 +42,28 @@
                     xmlDoc.async = false;
                     xmlDoc.loadXML(txt);
                 }
-        
+
                 var keyNodes = xmlDoc.getElementsByTagName("Key");
                 console.log(`Keys found for uri: ${API_URL} \r\n${keyNodes}`)
-                if (keyNodes.length-readUrisFrom < numberOfPhotos)
-                {
-                    console.log(`Only found ${keyNodes.length-readUrisFrom} photos in last request, but ${numberOfPhotos} were requested`);
+                if (keyNodes.length - readUrisFrom < numberOfPhotos) {
+                    console.log(`Only found ${keyNodes.length - readUrisFrom} photos in last request, but ${numberOfPhotos} were requested`);
                     areThereMorePhotos = false;
                 }
-                else
-                {
+                else {
                     areThereMorePhotos = true;
                 }
 
-                for(var i = readUrisFrom; i < keyNodes.length; i++)
-                {
+                for (var i = readUrisFrom; i < keyNodes.length; i++) {
                     s3Key = keyNodes[i].childNodes[0].nodeValue;
                     objectKeys.push(s3Key);
                 }
                 return objectKeys;
-            } 
-            else 
-            {
+            }
+            else {
                 console.log(`Error with response getting photo keys ${xhr.status}: ${xhr.statusText}`);
             }
-        } 
-        catch(err) 
-        { 
+        }
+        catch (err) {
             console.log(`Error in getPhotoS3Keys: ${err}`)
         }
     }
@@ -112,10 +103,9 @@
             if (hasMorePhotos()) {
                 // call the API to get quotes
                 photoS3Keys = getPhotoS3Keys(lastPhotoKey, limit);
-                if(photoS3Keys.length > 0)
-                {
-                    nextLastPhotoKey = photoS3Keys[photoS3Keys.length-1]
-            
+                if (photoS3Keys.length > 0) {
+                    nextLastPhotoKey = photoS3Keys[photoS3Keys.length - 1]
+
                     // show quotes
                     //console.log("Showing Photos");
                     showPhotos(photoS3Keys);
@@ -130,35 +120,48 @@
         return nextLastPhotoKey;
     };
 
-    loadMorePhotos = () => {
+    loadMorePhotosOnScroll = (element_id_to_update) => {
         const {
             scrollTop,
             scrollHeight,
             clientHeight
         } = document.documentElement;
 
-        if (scrollTop + clientHeight >= scrollHeight - 5 &&
-            hasMorePhotos()) {
-            lastPhotoUri = loadPhotos(lastPhotoUri, limit);
-            //console.log("Last Photo Uri")
-            //console.log(lastPhotoUri)
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+            loadMorePhotos(element_id_to_update);
         }
-
-        //Re-load gallery, so photos can be arranged correctly and examined
-        loadGridGallery();
     }
 
-    window.addEventListener('scroll', () => loadMorePhotos(), {
+    loadMorePhotos = (element_id_to_update) => {
+        if (hasMorePhotos()) {
+            lastPhotoUri = loadPhotos(lastPhotoUri, limit);
+            //Re-load gallery, so photos can be arranged correctly and examined
+            loadGridGallery();
+            return true;
+        }
+        else {
+            console.log("No more photos to load.");
+            elements = $(element_id_to_update);
+            for (let i = 0; i < elements.length; i++) {
+                element = elements[i];
+                element.innerHTML = "End of list.";
+            }
+            return false;
+        }
+    }
+
+    window.addEventListener('scroll', () => loadMorePhotosOnScroll("#loaderButton"), {
         passive: true
     });
-
-    $(document).on("click", "#loaderButton", loadMorePhotos);
 
     // initialize
     lastPhotoUri = null;
     const limit = 8;
     const baseUrl = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
     areThereMorePhotos = true;
+
+    //$(document).on("click", "#loaderButton", "#loaderButton", loadMorePhotos);
+    $("#loaderButton").click(function () { loadMorePhotos("#loaderButton") });
 
     lastPhotoUri = loadPhotos(lastPhotoUri, limit);
 
