@@ -13,6 +13,7 @@ import { getPhotoS3KeySync } from './photo-lister.js';
     const PHOTO_LOAD_LIMIT = 8;
     const BASE_URL = "https://s3.us-east-2.amazonaws.com/luisorlandogarcia.com-images/";
     const PHOTO_PREFIX = "background-images"; //TODO: add photos and update this dir
+    var isLoadingPhotos = false;
     var lastPhotoKey = null;
     var areThereMorePhotos = true;
 
@@ -50,6 +51,15 @@ import { getPhotoS3KeySync } from './photo-lister.js';
         img.addEventListener("click", function (i) {
             var currentImg = this;
             const parentItem = currentImg.parentElement;
+            var currentImgIndex = 0;
+            for (i = 0; i < images.length; i++) {
+                if (currentImg === images[i]) {
+                    console.log("found ref");
+                    currentImgIndex = i;
+                    break;
+                }
+            }
+
             var screenItem = document.getElementById("gg-screen");
             if (typeof (screenItem) == 'undefined' || screenItem == null) {
                 console.log(`Creating Screen, element is {}`)
@@ -81,16 +91,23 @@ import { getPhotoS3KeySync } from './photo-lister.js';
                 if (route == first) {
                     prevBtn.hidden = true;
                     var prevImg = false;
-                    var nextImg = currentImg.nextElementSibling;
+                    var nextImg = images[currentImgIndex + 1]
+                    //var nextImg = currentImg.nextElementSibling;
+                    console.log("route is first");
                 }
                 else if (route == last) {
                     nextBtn.hidden = true;
                     var nextImg = false;
-                    var prevImg = currentImg.previousElementSibling;
+                    var prevImg = images[currentImgIndex - 1]
+                    //var prevImg = currentImg.previousElementSibling;
+                    console.log("route is last");
                 }
                 else {
-                    var prevImg = currentImg.previousElementSibling;
-                    var nextImg = currentImg.nextElementSibling;
+                    //var prevImg = currentImg.previousElementSibling;
+                    //var nextImg = currentImg.nextElementSibling;
+                    var prevImg = images[currentImgIndex - 1]
+                    var nextImg = images[currentImgIndex + 1]
+                    console.log("route is neither");
                 }
             }
             else {
@@ -108,31 +125,60 @@ import { getPhotoS3KeySync } from './photo-lister.js';
             nextBtn.addEventListener("click", next);
 
             function prev() {
-                prevImg = currentImg.previousElementSibling;
+                //prevImg = currentImg.previousElementSibling;
+                var prevImg = images[currentImgIndex - 1]
                 imgItem.innerHTML = '<img src="' + prevImg.src + '">';
-                currentImg = currentImg.previousElementSibling;
+                //currentImg = currentImg.previousElementSibling;
+                currentImg = images[currentImgIndex - 1];
                 var mainImg = document.querySelector(".gg-image > img").src;
                 nextBtn.hidden = false;
                 prevBtn.hidden = mainImg === first;
+
+                currentImgIndex = currentImgIndex - 1;
             };
 
             function next() {
+                //if (isLoadingPhotos) {
+                //    //TODO: make this better
+                //    return;
+                //}
                 var mainImg = document.querySelector(".gg-image > img").src;
 
-                if (mainImg === last) {
+                //if (mainImg === last) {
+                if (currentImgIndex === images.length - 1) {
                     console.log("found last in gallery");
                     var oldLastPhotoKey = lastPhotoKey;
                     lastPhotoKey = loadPhotos(lastPhotoKey, BASE_URL, PHOTO_PREFIX, PHOTO_LOAD_LIMIT);
-                    if (oldLastPhotoKey === lastPhotoKey) {
-                        nextBtn.hidden = mainImg === last;
+                    //if (oldLastPhotoKey === lastPhotoKey) {
+                    console.log("currentImg");
+                    console.log(currentImgIndex);
+                    console.log("new images len");
+                    console.log(images.length);
+                    if (currentImgIndex === images.length - 1) {
+                        console.log("last image");
+
+                        //nextBtn.hidden = mainImg === last;
+                        nextBtn.hidden = currentImgIndex === images.length - 1;
+                        return;
                     }
                 }
+                else {
+                    console.log(mainImg);
+                    console.log(last);
+                }
 
-                nextImg = currentImg.nextElementSibling;
+                //nextImg = currentImg.nextElementSibling;
+                console.log("images");
+                console.log(images);
+                console.log(currentImgIndex);
+                var nextImg = images[currentImgIndex + 1];
                 imgItem.innerHTML = '<img src="' + nextImg.src + '">';
-                currentImg = currentImg.nextElementSibling;
+                //currentImg = currentImg.nextElementSibling;
+                currentImg = images[currentImgIndex + 1];
                 prevBtn.hidden = false;
                 //nextBtn.hidden = mainImg === last;
+
+                currentImgIndex = currentImgIndex + 1;
             };
 
             function hide() {
@@ -181,6 +227,7 @@ import { getPhotoS3KeySync } from './photo-lister.js';
     }
 
     const loadPhotos = (lastPhotoKey, baseUri, photoPrefix, photoLoadLimit) => {
+        isLoadingPhotos = true;
         showLoader();
         try {
             if (areThereMorePhotos) {
@@ -213,6 +260,7 @@ import { getPhotoS3KeySync } from './photo-lister.js';
         } finally {
             hideLoader();
         }
+        isLoadingPhotos = false;
         return lastPhotoKey;
     }
 
