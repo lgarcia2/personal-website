@@ -50,6 +50,7 @@ import { getPhotoS3KeySync } from './photo-lister.js';
 
         img.addEventListener("click", function (i) {
             var currentImg = this;
+            var isLastImage = false;
             const parentItem = currentImg.parentElement;
             var currentImgIndex = 0;
             for (i = 0; i < images.length; i++) {
@@ -125,6 +126,7 @@ import { getPhotoS3KeySync } from './photo-lister.js';
             nextBtn.addEventListener("click", next);
 
             function prev() {
+                isLastImage = false;
                 //prevImg = currentImg.previousElementSibling;
                 var prevImg = images[currentImgIndex - 1]
                 imgItem.innerHTML = '<img src="' + prevImg.src + '">';
@@ -138,47 +140,25 @@ import { getPhotoS3KeySync } from './photo-lister.js';
             };
 
             function next() {
-                //if (isLoadingPhotos) {
-                //    //TODO: make this better
-                //    return;
-                //}
-                var mainImg = document.querySelector(".gg-image > img").src;
-
-                //if (mainImg === last) {
-                if (currentImgIndex === images.length - 1) {
-                    console.log("found last in gallery");
-                    var oldLastPhotoKey = lastPhotoKey;
-                    lastPhotoKey = loadPhotos(lastPhotoKey, BASE_URL, PHOTO_PREFIX, PHOTO_LOAD_LIMIT);
-                    //if (oldLastPhotoKey === lastPhotoKey) {
-                    console.log("currentImg");
-                    console.log(currentImgIndex);
-                    console.log("new images len");
-                    console.log(images.length);
-                    if (currentImgIndex === images.length - 1) {
-                        console.log("last image");
-
-                        //nextBtn.hidden = mainImg === last;
-                        nextBtn.hidden = currentImgIndex === images.length - 1;
-                        return;
-                    }
-                }
-                else {
-                    console.log(mainImg);
-                    console.log(last);
-                }
-
-                //nextImg = currentImg.nextElementSibling;
-                console.log("images");
+                if (isLastImage) { return; }
+                console.log(`currrentImgIndex: ${currentImgIndex}`);
                 console.log(images);
-                console.log(currentImgIndex);
                 var nextImg = images[currentImgIndex + 1];
                 imgItem.innerHTML = '<img src="' + nextImg.src + '">';
-                //currentImg = currentImg.nextElementSibling;
                 currentImg = images[currentImgIndex + 1];
                 prevBtn.hidden = false;
-                //nextBtn.hidden = mainImg === last;
-
                 currentImgIndex = currentImgIndex + 1;
+
+                if (currentImgIndex === images.length - 1) {
+                    lastPhotoKey = loadPhotos(lastPhotoKey, BASE_URL, PHOTO_PREFIX, PHOTO_LOAD_LIMIT);
+                    if (currentImgIndex === images.length - 1) {
+                        isLastImage = true;
+                        nextBtn.hidden = currentImgIndex === images.length - 1;
+                    }
+                    //else {
+                    //    isLastImage = false;
+                    //}
+                }
             };
 
             function hide() {
