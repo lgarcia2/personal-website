@@ -127,8 +127,9 @@ import { getPhotoS3KeySync } from './photo-lister.js';
 
             function prev() {
                 isLastImage = false;
+                if (currentImgIndex == 0) { return; }
                 //prevImg = currentImg.previousElementSibling;
-                var prevImg = images[currentImgIndex - 1]
+                var prevImg = images[currentImgIndex - 1];
                 imgItem.innerHTML = '<img src="' + prevImg.src + '">';
                 //currentImg = currentImg.previousElementSibling;
                 currentImg = images[currentImgIndex - 1];
@@ -141,8 +142,6 @@ import { getPhotoS3KeySync } from './photo-lister.js';
 
             function next() {
                 if (isLastImage) { return; }
-                console.log(`currrentImgIndex: ${currentImgIndex}`);
-                console.log(images);
                 var nextImg = images[currentImgIndex + 1];
                 imgItem.innerHTML = '<img src="' + nextImg.src + '">';
                 currentImg = images[currentImgIndex + 1];
