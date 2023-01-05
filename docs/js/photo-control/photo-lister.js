@@ -53,15 +53,6 @@ export function getPhotoS3KeySync(baseUri, keyPrefix, numberOfUris = null, lastP
             var keyNodes = xmlDoc.getElementsByTagName("Key");
             console.log(`${keyNodes.length} Keys found for uri: ${apiUrl} \r\n${keyNodes}`)
 
-            // NOTE: this is old code from an old implementation where 'areThereMorePhotos' controlled when a button appeared 
-            //if (keyNodes.length - readUrisFrom < numberOfPhotos) {
-            //    console.log(`Only found ${keyNodes.length - readUrisFrom} photos in last request, but ${numberOfPhotos} were requested`);
-            //    areThereMorePhotos = false;
-            //}
-            //else {
-            //    areThereMorePhotos = true;
-            //}
-
             for (var i = readUrisFrom; i < keyNodes.length; i++) {
                 var s3Key = keyNodes[i].childNodes[0].nodeValue;
                 objectKeys.push(s3Key);
